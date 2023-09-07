@@ -1,0 +1,15 @@
+@import '../../style/globalstyle.scss';
+
+.skills {
+
+	margin: 1rem 2rem;
+
+	border: 1px solid green;
+	background: rgb(219, 235, 194);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	height: 500px;
+}

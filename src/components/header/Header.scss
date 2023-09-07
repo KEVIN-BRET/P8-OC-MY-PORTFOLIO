@@ -1,0 +1,53 @@
+@import '../../style/globalstyle.scss';
+
+.header {
+    background: #ae95c8;
+	
+	// background: var(--color-white);
+	border-bottom: 1px solid var(--color-lightgray);
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2rem 2rem;
+	width: 100%;
+	
+
+    box-shadow: 0 0 3px #333;
+    position: fixed;
+	left: 0;
+	top: 0;
+    z-index: 100;
+    height: 100px;
+    transition: 0.2s ease;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.profilePhoto {
+	border: 3px solid lightgray;
+	display: flex;
+	width: 65px;
+	height: 65px;
+	border-radius: 50%;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	& ul {
+		display: flex;
+		gap: 1rem;
+		margin: 1rem;
+		color: var(--color-body-white);
+		font-weight: 600;
+	}
+	& cv {
+		display: flex;
+	}
+}
