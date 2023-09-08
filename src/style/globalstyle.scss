@@ -70,24 +70,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// Variables couleurs :
-
-
-
-
-
 *,
 ::before,
 ::after {
@@ -109,9 +91,12 @@ li {
 }
 
 body {
-    max-width: 1440px;
+    // max-width: 1440px;
     // padding-top: 40px;
     margin: 0 auto;
+
+
+    
 
     @media screen and (max-width: 500px) {
         padding-top: 20px;
