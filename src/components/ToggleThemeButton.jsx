@@ -5,7 +5,7 @@ import { useContext } from 'react';
 
 export default function ToggleThemeButton() {
 
-	const { toggleTheme, darkMode } = useContext(ThemeContext)
+	const { toggleTheme } = useContext(ThemeContext)
 
 	return (
 		<div>

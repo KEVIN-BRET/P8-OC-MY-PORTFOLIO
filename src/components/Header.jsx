@@ -12,11 +12,11 @@ const StyledLogo = styled.div`
 	justify-content: center;
 	gap: 1rem;
 	transition: 0.3s ease;
-	color: ${colors.bodyLight};
+	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
 `
 const StyledHeader = styled.div`
 	background-color: ${({ $isDarkMode }) => $isDarkMode ? colors.backgroundDark : colors.backgroundLight};
-	border-bottom: 1px solid var(--color-lightgray);
+	${'' /* border-bottom: 1px solid var(--color-lightgray); */}
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -32,7 +32,7 @@ const StyledHeader = styled.div`
 	&.header--scrolled {
         height: 60px;
         box-shadow: 10px 10px 19px rgba(0, 0, 0, 0.1);
-        
+		
         ${StyledLogo} {
             transform: scale(0.8);
         }
@@ -43,46 +43,44 @@ const StyledNav = styled.div`
 		display: flex;
 		align-items: center;
 		margin: 0 1rem;
+		
 		& ul {
 			display: flex;
 			gap: 1rem;
 			margin: 1rem;
-			color: ${colors.bodyLight};
+			color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
 			font-weight: 600;
 			transition: 0.5s ease;
 			&:hover {
-				color: ${colors.bodyLightNotHover};
+				color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyLight : colors.bodyDark};
 			}
 			& li {
+				cursor: pointer;
 				&:hover {
-					cursor: pointer;
-					color: ${colors.bodyLight};
+					color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
 					transition: 0.5s ease;
 				}
 			}
 		}
 		& .cv {
 			cursor: pointer;
-			transition: 0.5s ease;
 			display: flex;
 			color: ${colors.primary};
 			border-radius: 6px;
 			padding: 10px;
-
-			background: ${colors.gradientBoxW};
-			box-shadow: ${colors.shadowWhite3};
+			background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
+			box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
 			font-weight: 500;
+			transition: 0.5s ease;
 
-			&:hover {
+				&:hover {
 				color: ${colors.white};
 				background: ${colors.primary};
-				box-shadow: var(--shadow-black-3);
 				transform: translateY(-3px);
-				transition: 0.5s ease;
-			}
+	}
 		}
-		
-		
+
+
 `
 const StyledProfilePhoto = styled.img`
 	border: 3px solid lightgray;
@@ -120,14 +118,14 @@ export default function Header() {
 
 	return (
 		<StyledHeader $isDarkMode={darkMode} className={isScrolled ? 'header--scrolled' : ''}>
-			<StyledLogo>
+			<StyledLogo $isDarkMode={darkMode}>
 				<StyledProfilePhoto src={profilePhoto} alt="logo" />
 				<h3>Kevin BRET</h3>
 			</StyledLogo>
 
 			<ToggleThemeButton />
 
-			<StyledNav>
+			<StyledNav $isDarkMode={darkMode}>
 				<ul className='header__nav'>
 					<li>Accueil</li>
 					<li>Skills</li>

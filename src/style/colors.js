@@ -11,16 +11,27 @@ const colors = {
 
   bodyLight: '#3c3e41',
   bodyLightNotHover: '#c4cfde',
+  
+  bodyDark: '#c4cfde',
+  bodyDarkNotHover: '#3c3e41',
 
 
+
+  gradientBoxDark: 'linear-gradient(145deg, #1e2024, #23272b)',
+  
+  gradientBoxLight: 'linear-gradient(145deg, #e2e8ec, #ffffff)',
+
+  boxShadowLight: '5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff',
+
+  boxShadowDark: '10px 10px 19px #0d0e0f, -10px -10px 19px #262a2e',
+
+  // boxShadowDark: 'inset 21px 21px 19px #181a1d, inset -21px -21px 19px #202225',
 
   //   background1: 'linear - gradient(145deg, #1e2024, #23272b)';
   // background - color - 2: #212428;
   // shadow - 1: 10px 10px 19px #1c1e22, -10px - 10px 19px #262a2e;
   // shadow - 2: inset 21px 21px 19px #181a1d, inset - 21px - 21px 19px #202225;
   // inner - shadow: 1px 4px 2px - 3px rgba(0, 0, 0, 0.7) inset, -1px - 3px 3px - 2px rgba(255, 255, 255, 0.2) inset;
-  shadowWhite3: '5px 5px 15px #D1D9E6, -5px - 5px 15px #ffffff',
-  gradientBoxW: 'linear - gradient(145deg, #e2e8ec, #ffffff)',
   // gradient - red - hover: linear - gradient(145deg, #ff014f, #d11414);
   // color - heading: #ffffff;
   // color - heading - wv: #1e2125;
@@ -128,7 +139,7 @@ export default colors
 
 
 
-// *,
+
 // :: before,
 // ::after {
 //     margin: 0;
