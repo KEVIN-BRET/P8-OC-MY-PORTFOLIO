@@ -12,7 +12,7 @@ const colors = {
   bodyLight: '#3c3e41',
   bodyLightNotHover: '#c4cfde',
   
-  bodyDark: '#c4cfde',
+  bodyDark: '#e6eaef',
   bodyDarkNotHover: '#3c3e41',
 
 

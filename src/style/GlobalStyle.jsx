@@ -5,6 +5,8 @@ const GlobalStyle = createGlobalStyle`
    	*,
 	::before,
 	::after {
+		${'' /* border: 1px solid pink; */}
+
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;

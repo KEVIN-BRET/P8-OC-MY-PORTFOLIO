@@ -11,7 +11,7 @@ const StyledLogo = styled.div`
 	align-items: center;
 	justify-content: center;
 	gap: 1rem;
-	transition: 0.3s ease;
+	transition: 0.5s ease;
 	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
 `
 const StyledHeader = styled.div`
@@ -32,6 +32,7 @@ const StyledHeader = styled.div`
 	&.header--scrolled {
         height: 60px;
         box-shadow: 10px 10px 19px rgba(0, 0, 0, 0.1);
+		opacity: 0.9;
 		
         ${StyledLogo} {
             transform: scale(0.8);
@@ -70,8 +71,8 @@ const StyledNav = styled.div`
 			padding: 10px;
 			background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
 			box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
-			font-weight: 500;
 			transition: 0.5s ease;
+			font-weight: 500;
 
 				&:hover {
 				color: ${colors.white};
