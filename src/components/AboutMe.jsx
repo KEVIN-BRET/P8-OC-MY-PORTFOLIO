@@ -10,9 +10,14 @@ import SmallBadge from './SmallBadge';
 import sassLogoColored from '../assets/images/svg/sass-colored.svg';
 import reactLogoColored from '../assets/images/svg/react-colored.svg';
 import cofeeCup from '../assets/images/svg/coffee-colored.svg';
-import linkedin from '../assets/images/svg/linkedin.svg';
-import github from '../assets/images/svg/github.svg';
-import email from '../assets/images/svg/email.svg';
+
+import linkedin from '../assets/images/svg/linkedin.png';
+import github from '../assets/images/svg/github.png';
+import email from '../assets/images/svg/email.png';
+
+import linkedinDark from '../assets/images/svg/linkedin-dark.png';
+import githubDark from '../assets/images/svg/github-dark.png';
+import emailDark from '../assets/images/svg/email-dark.png';
 
 
 
@@ -91,14 +96,14 @@ export default function AboutMe(props) {
 					<div className="findMe">
 						<p>Ou me trouver ?</p>
 						<div className="badgeContainer">
-							<SmallBadge logo={linkedin} />
-							<SmallBadge logo={github} />
-							<SmallBadge logo={email} />
+							<SmallBadge logo={linkedin} logoDark={linkedinDark} hoverable />
+							<SmallBadge logo={github} logoDark={githubDark} hoverable />
+							<SmallBadge logo={email} logoDark={emailDark} hoverable />
 						</div>
 					</div>
 
 					<div className="bestSkills">
-						<p>My Skills</p>
+						<p>Bests Skills</p>
 						<div className="badgeContainer">
 							<SmallBadge logo={sassLogoColored} />
 							<SmallBadge logo={reactLogoColored} />

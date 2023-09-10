@@ -12,7 +12,6 @@ const GlobalStyle = createGlobalStyle`
 		box-sizing: border-box;
 		font-family: 'Montserrat';
 		font-style: normal;
-		// border: 0.7px solid skyblue;
 	}
 
     body {

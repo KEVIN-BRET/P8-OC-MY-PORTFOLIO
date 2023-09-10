@@ -1,40 +1,53 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
-// import sassLogo from '../assets/images/svg/sass-colored.svg';
 
 import colors from '../style/colors';
-import { useContext } from 'react';
 import { ThemeContext } from '../utils/context/ThemeProvider';
-
-
-const StyledSmallBadge = styled.div`
-	width: 60px;
-	height: 60px;
-	border-radius: 6px;
-	padding: 10px;
-
-	background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
-	box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
-	transition: 0.5s ease;
-	
-	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
-
-`
-
 
 const StyledImg = styled.img`
     width: 100%;
+    z-index: 10;
+    transition: 0.5s ease;
 `;
 
-export default function SmallBadge({logo}) {
+const StyledSmallBadge = styled.div`
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+    background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
+    box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
+    transition: 0.5s ease;
+    ${({ $hoverable }) => $hoverable && `
+        &:hover {
+            color: ${colors.white};
+            background: ${colors.primary};
+            transform: translateY(-3px);
+        }
+    `}
+`;
 
-	const { darkMode } = useContext(ThemeContext);
+export default function SmallBadge({ logo, logoDark, hoverable = false }) {
+    const { darkMode } = useContext(ThemeContext);
+    const [isHovered, setIsHovered] = useState(false);
 
-	return (
-		<StyledSmallBadge $isDarkMode={darkMode}>
+    // Déterminer l'image à afficher
+    let currentLogo;
+    if (isHovered && hoverable) {
+        currentLogo = logoDark;
+    } else {
+        currentLogo = darkMode && logoDark ? logoDark : logo;
+    }
 
-			<StyledImg src={logo} alt='' />
-
-		</StyledSmallBadge>
-	);
+    return (
+        <StyledSmallBadge 
+            $isDarkMode={darkMode} // si le thème est sombre
+            $hoverable={hoverable} // si le composant est hoverable
+            onMouseEnter={() => setIsHovered(true)} // quand la souris entre dans le composant
+            onMouseLeave={() => setIsHovered(false)} // quand la souris sort du composant
+        >
+            <StyledImg src={currentLogo} alt='' />
+        </StyledSmallBadge>
+    );
 }

@@ -10,8 +10,9 @@ const StyledLogo = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin: 1rem 0;
 	gap: 1rem;
-	transition: 0.5s ease;
+	transition: 0.3s ease;
 	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
 `
 const StyledHeader = styled.div`
