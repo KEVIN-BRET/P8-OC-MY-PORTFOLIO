@@ -4,20 +4,31 @@ import colors from '../style/colors';
 import { ThemeContext } from '../utils/context/ThemeProvider';
 // import skillsDatas from '../assets/datas/skillsDatas.json';
 
+// logos :
 import htmlLogoLight from '../assets/images/logos/html5-light.png';
 import htmlLogoDark from '../assets/images/logos/html5-dark.png';
-
 import cssLogoLight from '../assets/images/logos/css3-light.png';
 import cssLogoDark from '../assets/images/logos/css3-dark.png';
-
 import sassLogoLight from '../assets/images/logos/sass-light.png';
 import sassLogoDark from '../assets/images/logos/sass-dark.png';
-
 import jsLogoLight from '../assets/images/logos/javascript-light.png';
 import jsLogoDark from '../assets/images/logos/javascript-dark.png';
-
 import reactLogoLight from '../assets/images/logos/react-light.png';
 import reactLogoDark from '../assets/images/logos/react-dark.png';
+import nodeLogoLight from '../assets/images/logos/node-light.png';
+import nodeLogoDark from '../assets/images/logos/node-dark.png';
+import expressLogoLight from '../assets/images/logos/express-light.png';
+import expressLogoDark from '../assets/images/logos/express-dark.png';
+import mongoLogoLight from '../assets/images/logos/mongodb-light.png';
+import mongoLogoDark from '../assets/images/logos/mongodb-dark.png';
+import seoLogoLight from '../assets/images/logos/seo-light.png';
+import seoLogoDark from '../assets/images/logos/seo-dark.png';
+import debugLogoLight from '../assets/images/logos/debug-light.png';
+import debugLogoDark from '../assets/images/logos/debug-dark.png';
+import userLogoDark from '../assets/images/logos/user-dark.png';
+import userLogoLight from '../assets/images/logos/user-light.png';
+import bookLogoLight from '../assets/images/logos/book-light.png';
+import bookLogoDark from '../assets/images/logos/book-dark.png';
 
 const StyledSkills = styled.div`
 	margin: 2rem auto;
@@ -45,7 +56,11 @@ const StyledCardsContainer = styled.div`
 
 const StyledCard = styled.div`
     width: 350px;
-    height: 150px;
+    height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
     border-radius: 6px;
     padding: 1.5rem;
     cursor: pointer;
@@ -67,7 +82,7 @@ const StyledCard = styled.div`
 `;
 
 const StyledLogosContainer = styled.div`
-		height: 50px;
+		height: 40px;
 		margin-bottom: 1rem;
 		display: flex;
 		gap: 1rem;
@@ -123,6 +138,53 @@ function Skills() {
 					</StyledLogosContainer>
 					<h3>JavaScript & React Js</h3>
 				</StyledCard>
+
+				<StyledCard
+					$isDarkMode={darkMode}
+					onMouseEnter={() => setIsHovered(true)}
+					onMouseLeave={() => setIsHovered(false)}
+				>
+					<StyledLogosContainer className='logos'>
+						{/* logo Node */}
+						{darkMode ? <img src={nodeLogoDark} alt="JavaScript" /> : <img src={nodeLogoLight} alt="JavaScript" />}
+						{/* logo Express */}
+						{darkMode ? <img src={expressLogoDark} alt="HTML" /> : <img src={expressLogoLight} alt="HTML" />}
+						{/* logo MongoDB */}
+						{darkMode ? <img src={mongoLogoDark} alt="HTML" /> : <img src={mongoLogoLight} alt="HTML" />}
+					</StyledLogosContainer>
+					<h3>Back-end (JavaScript)</h3>
+				</StyledCard>
+
+				<StyledCard
+					$isDarkMode={darkMode}
+					onMouseEnter={() => setIsHovered(true)}
+					onMouseLeave={() => setIsHovered(false)}
+				>
+					<StyledLogosContainer className='logos'>
+						{/* logo Seo */}
+						{darkMode ? <img src={seoLogoDark} alt="JavaScript" /> : <img src={seoLogoLight} alt="JavaScript" />}
+						{/* logo Debug */}
+						{darkMode ? <img src={debugLogoDark} alt="HTML" /> : <img src={debugLogoLight} alt="HTML" />}
+					</StyledLogosContainer>
+					<h3>SEO Optimisation Debug</h3>
+				</StyledCard>
+
+				<StyledCard
+					$isDarkMode={darkMode}
+					onMouseEnter={() => setIsHovered(true)}
+					onMouseLeave={() => setIsHovered(false)}
+				>
+					<StyledLogosContainer className='logos'>
+						{/* logo User */}
+						{darkMode ? <img src={userLogoDark} alt="JavaScript" /> : <img src={userLogoLight} alt="JavaScript" />}
+						{/* logo Book */}
+						{darkMode ? <img src={bookLogoDark} alt="HTML" /> : <img src={bookLogoLight} alt="HTML" />}
+					</StyledLogosContainer>
+					<h3>En cours d'apprentissage ...</h3>
+				</StyledCard>
+
+
+
 			</StyledCardsContainer>
 
 		</StyledSkills>
