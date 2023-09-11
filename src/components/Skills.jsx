@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
+import { ThemeContext } from '../utils/context/ThemeProvider';
 import styled from 'styled-components';
 import colors from '../style/colors';
-import { ThemeContext } from '../utils/context/ThemeProvider';
 // import skillsDatas from '../assets/datas/skillsDatas.json';
 
 // logos :
@@ -43,6 +43,9 @@ const StyledSkills = styled.div`
 		font-size: 2rem;
 		margin-bottom: 2rem;
 		color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
+	}
+	& .parcour {
+		margin: 2rem auto;
 	}
 `;
 
@@ -183,9 +186,10 @@ function Skills() {
 					<h3>En cours d'apprentissage ...</h3>
 				</StyledCard>
 
-
-
 			</StyledCardsContainer>
+
+			<h3 className='parcour'>Mon parcour & expérience</h3>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis sit laboriosam voluptatibus ut nemo qui voluptates placeat eveniet impedit dignissimos earum aut officia voluptas quae commodi quidem cum pariatur odit, aspernatur, praesentium, iure esse inventore nobis. Dolore quaerat facilis iste amet. Porro perferendis temporibus vel ipsum molestiae reiciendis neque exercitationem?</p>
 
 		</StyledSkills>
 	);

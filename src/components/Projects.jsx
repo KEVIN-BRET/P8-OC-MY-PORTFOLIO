@@ -1,20 +1,57 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../utils/context/ThemeProvider';
+
 import styled from 'styled-components';
+import colors from '../style/colors';
+
+import ProjectCard from './ProjectCard';
+
+import projectsData from '../assets/datas/projectsData.json';
 
 const StyledProjects = styled.div`
-	margin: 1rem 2rem;
-	border: 1px solid rgb(230, 209, 28);
-	background: rgb(241, 233, 160);
+	margin: 2rem auto;
+	padding-top: 120px;
+	width: 80%;
+	max-width: 1440px;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 500px;
+	& h1 {
+		font-size: 2rem;
+		margin-bottom: 2rem;
+		color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
+	}
 `
 
-export default function Projects(props) {
+const StyledProjectGallery = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+`
+
+export default function Projects() {
+	const { darkMode } = useContext(ThemeContext);
+
 	return (
-		<StyledProjects>
-			SECTION 3 : MES PROJETS
+		<StyledProjects $isDarkMode={darkMode}>
+			<h1>Mes projets</h1>
+			<StyledProjectGallery>
+				{projectsData.map(({ id, cover, title, skills }) =>
+				(
+					<ProjectCard key={id}
+						id={id}
+						cover={cover}
+						title={title}
+						skills={skills}
+					/>
+				)
+				)}
+
+
+			</StyledProjectGallery>
 		</StyledProjects>
 	);
 }
