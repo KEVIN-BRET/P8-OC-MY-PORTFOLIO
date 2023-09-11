@@ -7,7 +7,7 @@ import { ThemeContext } from '../utils/context/ThemeProvider';
 const StyledImg = styled.img`
     width: 100%;
     z-index: 10;
-    transition: 0.5s ease;
+    transition: 0.3s ease;
 `;
 
 const StyledSmallBadge = styled.div`

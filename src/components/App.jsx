@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 
+import RoundButton from './RoundButton';
 import Header from './Header';
 import AboutMe from './AboutMe';
 import Skills from './Skills';
@@ -25,13 +26,14 @@ export default function App() {
 
   return (
     <div className="App">
-      <GlobalStyle isDarkMode={darkMode}/>
-        <Header />
-        <AboutMe />
-        <Skills />
-        <Projects />
-        <Contact />
-      </div>
+      <GlobalStyle isDarkMode={darkMode} />
+      <RoundButton symbol="↑"/>
+      <Header />
+      <AboutMe />
+      <Skills />
+      <Projects />
+      <Contact />
+    </div>
   );
 }
 
