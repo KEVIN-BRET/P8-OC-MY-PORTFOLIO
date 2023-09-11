@@ -11,6 +11,9 @@ const StyledImg = styled.img`
 `;
 
 const StyledSmallBadge = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 60px;
     height: 60px;
     border-radius: 6px;

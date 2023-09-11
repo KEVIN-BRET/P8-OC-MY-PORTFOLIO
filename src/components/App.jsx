@@ -10,6 +10,11 @@ import GlobalStyle from '../style/GlobalStyle';
 import { ThemeContext } from '../utils/context/ThemeProvider';
 import { useContext } from 'react';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faReact } from '@fortawesome/free-brands-svg-icons';
+
+library.add(faReact);
+
 export default function App() {
 
   const { darkMode } = useContext(ThemeContext);
