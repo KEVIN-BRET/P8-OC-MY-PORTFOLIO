@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.js": "/P8-OC-MY-PORTFOLIO/static/js/main.14dd0f04.js",
+    "static/media/avatar.png": "/P8-OC-MY-PORTFOLIO/static/media/avatar.2b14156b63f3a94c4e75.png",
+    "static/media/profile_photo.png": "/P8-OC-MY-PORTFOLIO/static/media/profile_photo.fae96914c44320fcbd83.png",
+    "static/media/react-color.png": "/P8-OC-MY-PORTFOLIO/static/media/react-color.f104aa2bbce7d63e81f5.png",
+    "static/media/sass-color.png": "/P8-OC-MY-PORTFOLIO/static/media/sass-color.1012e2113f0d2baf9041.png",
+    "static/media/book-dark.png": "/P8-OC-MY-PORTFOLIO/static/media/book-dark.3d4f60f4ca7f79e2f8b3.png",
+    "static/media/book-light.png": "/P8-OC-MY-PORTFOLIO/static/media/book-light.c90bf6080e4a8c41015e.png",
+    "static/media/user-light.png": "/P8-OC-MY-PORTFOLIO/static/media/user-light.acc44f68caff2d33efb7.png",
+    "static/media/user-dark.png": "/P8-OC-MY-PORTFOLIO/static/media/user-dark.4c1b36e44cc5c02d613c.png",
+    "static/media/mongodb-light.png": "/P8-OC-MY-PORTFOLIO/static/media/mongodb-light.e79aab3663239b640685.png",
+    "static/media/debug-dark.png": "/P8-OC-MY-PORTFOLIO/static/media/debug-dark.364d8118623e01f33340.png",
+    "static/media/debug-light.png": "/P8-OC-MY-PORTFOLIO/static/media/debug-light.c0589f46e85358770932.png",
+    "static/media/react-dark.png": "/P8-OC-MY-PORTFOLIO/static/media/react-dark.061941a33f4b15b88700.png",
+    "static/media/react-light.png": "/P8-OC-MY-PORTFOLIO/static/media/react-light.e4e6e43eca3555c6d430.png",
+    "static/media/sass-dark.png": "/P8-OC-MY-PORTFOLIO/static/media/sass-dark.f8f4c0a09a1fce5e1afb.png",
+    "static/media/sass-light.png": "/P8-OC-MY-PORTFOLIO/static/media/sass-light.58e9be293610fb410101.png",
+    "static/media/mongodb-dark.png": "/P8-OC-MY-PORTFOLIO/static/media/mongodb-dark.50a60e31ca0b49c7d6d5.png",
+    "static/media/express-dark.png": "/P8-OC-MY-PORTFOLIO/static/media/express-dark.49d6d4a7abd0c3ceea38.png",
+    "static/media/express-light.png": "/P8-OC-MY-PORTFOLIO/static/media/express-light.327b826e9a684932e113.png",
+    "static/media/node-dark.png": "/P8-OC-MY-PORTFOLIO/static/media/node-dark.2b4d1daf114e97d66b37.png",
+    "static/media/coffee-colored.svg": "/P8-OC-MY-PORTFOLIO/static/media/coffee-colored.9a2023177e9b6efe88cceb97e8a6f1e6.svg",
+    "index.html": "/P8-OC-MY-PORTFOLIO/index.html",
+    "main.14dd0f04.js.map": "/P8-OC-MY-PORTFOLIO/static/js/main.14dd0f04.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.14dd0f04.js"
+  ]
+}
