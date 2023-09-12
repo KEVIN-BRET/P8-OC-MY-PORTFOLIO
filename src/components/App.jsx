@@ -27,7 +27,6 @@ export default function App() {
   return (
     <div className="App">
       <GlobalStyle isDarkMode={darkMode} />
-      <RoundButton symbol="↑"/>
       <Header />
       <AboutMe />
       <Skills />

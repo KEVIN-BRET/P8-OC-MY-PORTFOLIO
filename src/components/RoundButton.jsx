@@ -6,34 +6,20 @@ import colors from '../style/colors';
 
 
 const StyledRoundButton = styled.div`
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
     cursor: pointer;
 	font-size: 3rem;
 	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
     z-index: 999;
     width: 50px;
     height: 50px;
-    line-height: 46px;
-    border-radius: 50%;
-    background-color: #212428;
     text-align: center;
-    z-index: 1999 !important;
-    box-shadow: var(--shadow-1);
-	transition: 0.5s ease;
-	visibility: hidden;
-	opacity: 0;
+	transition: 0.2s ease;
+    border-radius: 50%;
 	background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
     box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
-	&.page--scrolled {
-		opacity: 1;
-		visibility: visible;
-		&:hover {
-			transition: 0.2s ease;
-			color: ${colors.primary};
-		}
-	}
+	&:hover {
+        color: ${colors.primary};  // Choisissez la couleur que vous souhaitez pour l'effet de survol.
+    }
 	
 `
 

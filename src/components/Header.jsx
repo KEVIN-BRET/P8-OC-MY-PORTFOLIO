@@ -4,6 +4,7 @@ import ToggleThemeButton from './ToggleThemeButton';
 import styled from 'styled-components';
 import colors from '../style/colors';
 import { ThemeContext } from '../utils/context/ThemeProvider';
+import RoundButton from './RoundButton';
 
 
 const StyledLogo = styled.div`
@@ -92,6 +93,30 @@ const StyledProfilePhoto = styled.img`
 	border-radius: 50%;
 `
 
+const StyledBacToTop = styled.div`
+	position: fixed;
+    bottom: 50px;
+    right: 50px;
+    ${'' /* cursor: pointer;
+	font-size: 3rem;
+	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
+    z-index: 999;
+    width: 50px;
+    height: 50px;
+    line-height: 46px;
+    border-radius: 50%;
+    text-align: center;
+	transition: 0.5s ease; */}
+	line-height: 46px;
+	border-radius: 50%;
+	visibility: hidden;
+	opacity: 0;
+	&.page--scrolled {
+    opacity: 1;
+    visibility: visible;
+}
+`
+
 
 
 export default function Header() {
@@ -119,23 +144,31 @@ export default function Header() {
 	}, []);
 
 	return (
-		<StyledHeader $isDarkMode={darkMode} className={isScrolled ? 'header--scrolled' : ''}>
-			<StyledLogo $isDarkMode={darkMode}>
-				<StyledProfilePhoto src={profilePhoto} alt="logo" />
-				<h3>Kevin BRET</h3>
-			</StyledLogo>
+		<>
 
-			<ToggleThemeButton />
+			<StyledHeader $isDarkMode={darkMode} className={isScrolled ? 'header--scrolled' : ''}>
+				<StyledLogo $isDarkMode={darkMode}>
+					<StyledProfilePhoto src={profilePhoto} alt="logo" />
+					<h3>Kevin BRET</h3>
+				</StyledLogo>
 
-			<StyledNav $isDarkMode={darkMode}>
-				<ul className='header__nav'>
-					<li>Accueil</li>
-					<li>Skills</li>
-					<li>Portfolio</li>
-					<li>Contact</li>
-				</ul>
-				<div className="cv">Télécharger mon CV</div>
-			</StyledNav>
-		</StyledHeader>
+				<ToggleThemeButton />
+
+				<StyledNav $isDarkMode={darkMode}>
+					<ul className='header__nav'>
+						<li>Accueil</li>
+						<li>Skills</li>
+						<li>Portfolio</li>
+						<li>Contact</li>
+					</ul>
+					<div className="cv">Télécharger mon CV</div>
+				</StyledNav>
+
+			</StyledHeader>
+
+			<StyledBacToTop $isDarkMode={darkMode} className={isScrolled ? 'page--scrolled' : ''}>
+				<RoundButton className="symbol" symbol="↑"/>
+			</StyledBacToTop>
+		</>
 	);
 }

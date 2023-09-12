@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useContext } from 'react';
 import { ThemeContext } from '../utils/context/ThemeProvider';
+import RoundButton from './RoundButton';
 
 import colors from '../style/colors';
 // import { ThemeContext } from '../utils/context/ThemeProvider';
@@ -9,6 +10,7 @@ import colors from '../style/colors';
 // import projectsData from '../assets/datas/projectsData.json';
 
 const StyledProjectCard = styled.div`
+	position: relative;
     width: 350px;
     height: auto;
 	display: flex;
@@ -28,6 +30,7 @@ const StyledProjectCard = styled.div`
 			& img {
 				transform: scale(1.1);
 			}
+			
 			& h2 {
 				color: ${colors.white};
 				transition: 0.3s ease;
@@ -47,15 +50,50 @@ const StyledProjectCard = styled.div`
 		height: 200px;
 		width: 100%;
 		overflow: hidden;
+		position: relative;
+		& img {
+			z-index: 0;
+			height: 200px;
+			width: 100%;
+			object-fit: cover;
+			transition: 0.6s ease;
+			${'' /* display: none; */}
+		}
+		& span {
+			z-index: 10;
+			position: absolute;
+			color: ${colors.bodyDark};
+			background: ${colors.primary};
+			box-shadow: 0 0 10px rgba(0,0,0,0.5);
+			padding: 0.4rem 0.6rem;
+			font-style: italic;
+			transition: 0.3s ease;
+		}
+		& .name {
+			left: 0;
+			top: 0;
+			border-radius: 10px 0 10px 0;
+			transform: translateY(-130%);
+
+		}
+		& .more {
+			bottom: 0;
+			right: 0;
+			border-radius: 10px 0 10px 0;
+			transform: translateY(130%);
+		}
 	}
-	& img {
-		height: 200px;
-		width: 100%;
-		object-fit: cover;
-		transition: 0.6s ease;
-	}
-	& .arrow {
-		visibility: hidden;
+	&:hover {
+		& .name {
+					transform: translateY(0%);
+				}
+				& .more {
+					transform: translateY(0%);
+
+				}
+		}
+		& .arrow {
+			visibility: hidden;
 	}
 	
 `;
@@ -76,6 +114,7 @@ const StyledSkill = styled.div`
 
 const StyledNav = styled.div`
 	display: flex;
+	justify-content: space-around;
 	margin-top: 0.5rem;
 	width: 100%;
 	gap: 1rem;
@@ -83,7 +122,7 @@ const StyledNav = styled.div`
 	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
 	transition: 0.3s ease;
 	&>div {
-		text-decoration: underline;
+		${'' /* text-decoration: underline; */}
 		font-style: italic;
 		transition: 0.3s ease;
 		&:hover {
@@ -94,11 +133,11 @@ const StyledNav = styled.div`
 				visibility: visible;
 			}
 		}
-	}
-	
+	}	
 `
 
-export default function ProjectCard({ id, title, cover, skills }) {
+
+export default function ProjectCard({ id, title, cover, skills, name }) {
 
 	const { darkMode } = useContext(ThemeContext);
 
@@ -106,7 +145,9 @@ export default function ProjectCard({ id, title, cover, skills }) {
 		<StyledProjectCard $isDarkMode={darkMode}>
 
 			<div className="thumbnail">
+				<span className="name">{name}</span>
 				<img className='card__picture' src={cover} alt="" />
+				<span className="more">+ d'infos</span>
 			</div>
 
 			<StyledSkillsContainer>
@@ -122,7 +163,6 @@ export default function ProjectCard({ id, title, cover, skills }) {
 			<StyledNav $isDarkMode={darkMode} >
 				<div>Live Demo<span className="arrow"> ➚</span></div>
 				<div>Repo GitHub<span className="arrow"> ➚</span></div>
-				<div> + </div>
 			</StyledNav>
 		</StyledProjectCard>
 	);
