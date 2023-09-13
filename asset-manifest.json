@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.js": "/P8-OC-MY-PORTFOLIO/static/js/main.98a3aa93.js",
+    "main.js": "/P8-OC-MY-PORTFOLIO/static/js/main.90035b8e.js",
     "static/media/avatar.png": "/P8-OC-MY-PORTFOLIO/static/media/avatar.2b14156b63f3a94c4e75.png",
+    "static/media/handshake.webp": "/P8-OC-MY-PORTFOLIO/static/media/handshake.56715ce61ef8d3fa80b1.webp",
     "static/media/react-color.png": "/P8-OC-MY-PORTFOLIO/static/media/react-color.f104aa2bbce7d63e81f5.png",
     "static/media/sass-color.png": "/P8-OC-MY-PORTFOLIO/static/media/sass-color.1012e2113f0d2baf9041.png",
     "static/media/book-dark.png": "/P8-OC-MY-PORTFOLIO/static/media/book-dark.3d4f60f4ca7f79e2f8b3.png",
@@ -22,9 +23,9 @@
     "static/media/node-dark.png": "/P8-OC-MY-PORTFOLIO/static/media/node-dark.2b4d1daf114e97d66b37.png",
     "static/media/coffee-colored.svg": "/P8-OC-MY-PORTFOLIO/static/media/coffee-colored.9a2023177e9b6efe88cceb97e8a6f1e6.svg",
     "index.html": "/P8-OC-MY-PORTFOLIO/index.html",
-    "main.98a3aa93.js.map": "/P8-OC-MY-PORTFOLIO/static/js/main.98a3aa93.js.map"
+    "main.90035b8e.js.map": "/P8-OC-MY-PORTFOLIO/static/js/main.90035b8e.js.map"
   },
   "entrypoints": [
-    "static/js/main.98a3aa93.js"
+    "static/js/main.90035b8e.js"
   ]
 }
