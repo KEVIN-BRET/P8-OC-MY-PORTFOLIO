@@ -33,7 +33,7 @@ import bookLogoDark from '../assets/images/logos/book-dark.png';
 const StyledSkills = styled.div`
 	margin: 2rem auto;
 	padding-top: 120px;
-	width: 80%;
+	width: 90%;
 	max-width: 1440px;
 	display: flex;
 	flex-direction: column;
@@ -188,8 +188,8 @@ function Skills() {
 
 			</StyledCardsContainer>
 
-			<h3 className='parcour'>Mon parcour & expérience</h3>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis sit laboriosam voluptatibus ut nemo qui voluptates placeat eveniet impedit dignissimos earum aut officia voluptas quae commodi quidem cum pariatur odit, aspernatur, praesentium, iure esse inventore nobis. Dolore quaerat facilis iste amet. Porro perferendis temporibus vel ipsum molestiae reiciendis neque exercitationem?</p>
+			{/* <h3 className='parcour'>Mon parcour & expérience</h3>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis sit laboriosam voluptatibus ut nemo qui voluptates placeat eveniet impedit dignissimos earum aut officia voluptas quae commodi quidem cum pariatur odit, aspernatur, praesentium, iure esse inventore nobis. Dolore quaerat facilis iste amet. Porro perferendis temporibus vel ipsum molestiae reiciendis neque exercitationem?</p> */}
 
 		</StyledSkills>
 	);

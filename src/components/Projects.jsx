@@ -11,7 +11,7 @@ import projectsData from '../assets/datas/projectsData.json';
 const StyledProjects = styled.div`
 	margin: 2rem auto;
 	padding-top: 120px;
-	width: 80%;
+	width: 90%;
 	max-width: 1440px;
 	display: flex;
 	flex-direction: column;

@@ -27,6 +27,8 @@ const colors = {
 
   boxShadowDark: '10px 10px 19px #0d0e0f, -10px -10px 19px #262a2e',
 
+  inputBackgroungDark: '#191b1e',
+
   // boxShadowDark: 'inset 21px 21px 19px #181a1d, inset -21px -21px 19px #202225',
 
   //   background1: 'linear - gradient(145deg, #1e2024, #23272b)';

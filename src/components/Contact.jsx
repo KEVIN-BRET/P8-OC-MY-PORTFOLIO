@@ -42,17 +42,21 @@ const StyledContact = styled.div`
 const StyledContainer = styled.div`
 	display: flex;
 	justify-content: center;
+	align-items: flex-start;  
 	gap: 2rem;
+	${'' /* height: auto; */}
 	
 `
 
 const StyledInfos = styled.div`
 	display: flex;
-	width: 37%;
+	width: 40%;
+	height: auto;
 	flex-direction: column;
 	justify-content: center;
 	border-radius: 6px;
 	padding: 2rem;
+	margin: auto auto;
 	gap: 1rem;
 	background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
     box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
@@ -88,15 +92,58 @@ const StyledInfos = styled.div`
 
 const StyledForm = styled.div`
 	display: flex;
-	width: 57%;
+	width: 60%;
+	height: 100%;
 	flex-direction: column;
 	justify-content: center;
 	border-radius: 6px;
-	padding: 2rem;
+	padding: 1.5rem;
+	margin: auto auto;
 	gap: 1rem;
 	background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
     box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
 	transition: 0.3s ease;
+	& form {
+		display: flex;
+		flex-direction: column;
+		
+			& div {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			margin: 0.5rem 0;
+			& input {
+				background-color: ${({ $isDarkMode }) => $isDarkMode ? colors.inputBackgroungDark : "white"};
+				border-radius: 6px;
+				height: 55px;
+				transition: var(--transition);
+				border: 2px solid #191b1e;
+				padding: 0 15px;
+				font-size: 1rem;
+				color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
+
+				box-shadow: var(--inner-shadow);
+				letter-spacing: 1px;
+				}
+				& label {
+					margin-bottom: 0.5rem;
+				}
+			}
+			& .message-container textarea {
+				width: 100%;
+				height: 235px;
+				resize: none;
+		}
+		
+		& .name-and-phone {
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			gap: 2rem;
+		}
+		
+	}
+
 	`
 
 export default function Contact() {
@@ -115,7 +162,7 @@ export default function Contact() {
 
 					<h3>Kevin BRET</h3>
 					<p>Développeur Web</p>
-					<p>Je suis actuellement disponible, en recherche d'un poste dans une équipe .. :)</p>
+					<p>Je suis actuellement disponible, en recherche d'un poste de développeur front-end dans une équipe ..</p>
 					<p>Téléphone : <span>07 82 42 30 30</span></p>
 					<p>Email : <span>kevinbret.dev@gmail.com</span></p>
 
@@ -137,12 +184,40 @@ export default function Contact() {
 
 				<StyledForm $isDarkMode={darkMode}>
 					<form action="">
-						<input type="text" placeholder='Nom' />
-						<input type="text" placeholder='Téléphone' />
-						<input type="text" placeholder='Email' />
-						<input type="text" placeholder='Sujet' />
-						<textarea name="" id="" cols="30" rows="10" placeholder='Message'></textarea>
+
+						<div className="name-and-phone">
+							<div class="name-container">
+								<label for="name">Votre nom</label>
+								<input type="text" autoComplete="on" id="name" />
+								<span></span>
+							</div>
+
+							<div class="phone-container">
+								<label for="phone">N° de téléphone</label>
+								<input type="text" autoComplete="on" id="phone" />
+								<span></span>
+							</div>
+						</div>
+
+						<div class="email-container">
+							<label for="mail">Email</label>
+							<input type="email" autocomplete="on" id="email" />
+							<span></span>
+						</div>
+
+						<div class="message-container">
+							<label for="message">Votre message</label>
+							<textarea type="text" id="message" rows="" cols=""></textarea>
+							<span></span>
+						</div>
+
+						<div class="submit-container">
+							{/* <label for="submit">Envoyer</label> */}
+							<input type="submit" id="submit" value="Envoyer" />
+							<span></span>
+						</div>
 					</form>
+
 				</StyledForm>
 
 			</StyledContainer>

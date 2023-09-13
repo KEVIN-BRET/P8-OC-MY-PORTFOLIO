@@ -126,13 +126,7 @@ const StyledBacToTop = styled.div`
 }
 `
 
-function handleNavigation(event, targetId) {
-	event.preventDefault();
-	const target = document.getElementById(targetId);
-	if (target) {
-		target.scrollIntoView({ behavior: "smooth" });
-	}
-}
+
 
 
 export default function Header() {
@@ -171,22 +165,22 @@ export default function Header() {
 				<StyledNav $isDarkMode={darkMode}>
 					<ul className='header__nav'>
 						<li>
-							<a href="#accueil" onClick={(e) => handleNavigation(e, "accueil")}>
+							<a href="#accueil" >
 								Accueil
 							</a>
 						</li>
 						<li>
-							<a href="#skills" onClick={(e) => handleNavigation(e, "skills")}>
+							<a href="#skills" >
 								Skills
 							</a>
 						</li>
 						<li>
-							<a href="#projects" onClick={(e) => handleNavigation(e, "projects")}>
+							<a href="#projects">
 								Projets
 							</a>
 						</li>
 						<li>
-							<a href="#contact" onClick={(e) => handleNavigation(e, "contact")}>
+							<a href="#contact" >
 								Contact
 							</a>
 						</li>
@@ -198,7 +192,7 @@ export default function Header() {
 
 			<StyledBacToTop $isDarkMode={darkMode} className={isScrolled ? 'page--scrolled' : ''}>
 
-				<a href="#accueil" onClick={(e) => handleNavigation(e, "accueil")}>
+				<a href="#accueil">
 					<RoundButton className="symbol" symbol="↑" />
 				</a>
 
