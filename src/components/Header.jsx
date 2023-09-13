@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import profilePhoto from '../assets/images/profile_photo.png';
+import profilePhoto from '../assets/images/3d-avatar.webp';
 import ToggleThemeButton from './ToggleThemeButton';
 import styled from 'styled-components';
 import colors from '../style/colors';
@@ -15,6 +15,7 @@ const StyledLogo = styled.div`
 	gap: 1rem;
 	transition: 0.3s ease;
 	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
+	
 `
 const StyledHeader = styled.div`
 	background-color: ${({ $isDarkMode }) => $isDarkMode ? colors.backgroundDark : colors.backgroundLight};
@@ -55,7 +56,9 @@ const StyledNav = styled.div`
 			font-weight: 600;
 			transition: 0.5s ease;
 			&:hover {
-				color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyLight : colors.bodyDark};
+				color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDarkNotHover : colors.bodyLightNotHover};
+
+				
 			}
 			& li {
 				cursor: pointer;
@@ -86,11 +89,14 @@ const StyledNav = styled.div`
 
 `
 const StyledProfilePhoto = styled.img`
-	border: 3px solid lightgray;
+	border: 2px solid lightgray;
 	display: flex;
 	width: 65px;
 	height: 65px;
 	border-radius: 50%;
+	object-fit: cover;	
+	background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
+	box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
 `
 
 const StyledBacToTop = styled.div`
@@ -117,12 +123,17 @@ const StyledBacToTop = styled.div`
 }
 `
 
+function handleNavigation(event, targetId) {
+    event.preventDefault();
+    const target = document.getElementById(targetId);
+    if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+    }
+}
 
 
 export default function Header() {
-
 	const { darkMode } = useContext(ThemeContext);
-
 	// est-ce que la page est scrollée ?
 	const [isScrolled, setIsScrolled] = useState(false);
 
@@ -148,21 +159,37 @@ export default function Header() {
 
 			<StyledHeader $isDarkMode={darkMode} className={isScrolled ? 'header--scrolled' : ''}>
 				<StyledLogo $isDarkMode={darkMode}>
-					<StyledProfilePhoto src={profilePhoto} alt="logo" />
+					<StyledProfilePhoto src={profilePhoto} alt="logo" $isDarkMode={darkMode}/>
 					<h3>Kevin BRET</h3>
 				</StyledLogo>
 
 				<ToggleThemeButton />
 
 				<StyledNav $isDarkMode={darkMode}>
-					<ul className='header__nav'>
-						<li>Accueil</li>
-						<li>Skills</li>
-						<li>Portfolio</li>
-						<li>Contact</li>
-					</ul>
-					<div className="cv">Télécharger mon CV</div>
-				</StyledNav>
+                    <ul className='header__nav'>
+                        <li>
+                            <a href="#accueil" onClick={(e) => handleNavigation(e, "accueil")}>
+                                Accueil
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#skills" onClick={(e) => handleNavigation(e, "skills")}>
+                                Skills
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#projects" onClick={(e) => handleNavigation(e, "projects")}>
+                                Projets
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" onClick={(e) => handleNavigation(e, "contact")}>
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                    <div className="cv">Télécharger mon CV</div>
+                </StyledNav>
 
 			</StyledHeader>
 

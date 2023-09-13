@@ -108,7 +108,7 @@ function Skills() {
 	// }
 
 	return (
-		<StyledSkills $isDarkMode={darkMode}>
+		<StyledSkills id='skills' $isDarkMode={darkMode}>
 			<h1>Mes compétences</h1>
 
 			<StyledCardsContainer>

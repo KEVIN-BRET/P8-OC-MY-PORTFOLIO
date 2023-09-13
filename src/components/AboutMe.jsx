@@ -19,6 +19,8 @@ import linkedinDark from '../assets/images/logos/linkedin-dark.png';
 import githubDark from '../assets/images/logos/github-dark.png';
 import emailDark from '../assets/images/logos/email-dark.png';
 
+const LINKEDIN_URL = 'https://www.linkedin.com/in/kevin-bret-534a73180/';
+const GITHUB_URL = 'https://github.com/KEVIN-BRET/';
 
 
 const StyledAboutMe = styled.div`
@@ -34,6 +36,10 @@ const StyledAboutMe = styled.div`
 	max-width: 1440px;
 	gap: 3rem;
 	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
+	@media screen and (max-width: 1200px) {
+		flex-direction: column-reverse;
+		
+	}
 `
 
 const StyledInfos = styled.div`
@@ -85,7 +91,7 @@ export default function AboutMe() {
 	const { darkMode } = useContext(ThemeContext);
 
 	return (
-		<StyledAboutMe $isDarkMode={darkMode} >
+		<StyledAboutMe id='accueil' $isDarkMode={darkMode} >
 			<StyledInfos>
 				<div className='text'>
 					<p>Bienvenue sur mon Portfolio !</p>
@@ -101,8 +107,12 @@ export default function AboutMe() {
 					<div className="findMe">
 						<p>Ou me trouver ?</p>
 						<div className="badgeContainer">
-							<SmallBadge logo={linkedin} logoDark={linkedinDark} hoverable />
-							<SmallBadge logo={github} logoDark={githubDark} hoverable />
+							<a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
+								<SmallBadge logo={linkedin} logoDark={linkedinDark} hoverable />
+							</a>
+							<a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+								<SmallBadge logo={github} logoDark={githubDark} hoverable />
+							</a>
 							<SmallBadge logo={email} logoDark={emailDark} hoverable />
 						</div>
 					</div>

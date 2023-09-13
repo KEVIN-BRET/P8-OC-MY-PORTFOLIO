@@ -12,6 +12,7 @@ const StyledRoundButton = styled.div`
     z-index: 999;
     width: 50px;
     height: 50px;
+	max-height : 50%;
     text-align: center;
 	transition: 0.2s ease;
     border-radius: 50%;

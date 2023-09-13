@@ -10,10 +10,12 @@ const colors = {
   backgroundDark: '#212528',
 
   bodyLight: '#3c3e41',
-  bodyLightNotHover: '#c4cfde',
+  bodyLightNotHover: 'lightgrey',
   
   bodyDark: '#e6eaef',
-  bodyDarkNotHover: '#3c3e41',
+  bodyDarkNotHover: 'grey',
+
+
 
 
 

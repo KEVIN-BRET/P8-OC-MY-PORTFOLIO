@@ -36,7 +36,7 @@ export default function Projects() {
 	const { darkMode } = useContext(ThemeContext);
 
 	return (
-		<StyledProjects $isDarkMode={darkMode}>
+		<StyledProjects id='projects' $isDarkMode={darkMode}>
 			<h1>Mes projets</h1>
 			<StyledProjectGallery>
 				{projectsData.map(({ id,name, cover, title, skills }) =>
