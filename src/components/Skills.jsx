@@ -72,7 +72,7 @@ const StyledCard = styled.div`
     transition: 0.3s ease;
         &:hover {
             color: ${colors.bodyDark};
-            background: ${colors.primary};
+            background: ${colors.gradienPrimaryColor};
             transform: translateY(-3px);
 			& h2 {
 				color: ${colors.white};

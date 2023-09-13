@@ -73,7 +73,6 @@ const StyledInfos = styled.div`
 		& .badgeContainer {
 			display: flex;
 			gap: 1.5rem;
-			${'' /* flex-direction: row; */}
 		}
 	}
 `
@@ -113,7 +112,9 @@ export default function AboutMe() {
 							<a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
 								<SmallBadge logo={github} logoDark={githubDark} hoverable />
 							</a>
-							<SmallBadge logo={email} logoDark={emailDark} hoverable />
+							<a href="#contact" >
+								<SmallBadge logo={email} logoDark={emailDark} hoverable />
+							</a>
 						</div>
 					</div>
 

@@ -25,7 +25,7 @@ const StyledSmallBadge = styled.div`
     ${({ $hoverable }) => $hoverable && `
         &:hover {
             color: ${colors.white};
-            background: ${colors.primary};
+            background: ${colors.gradienPrimaryColor};
             transform: translateY(-3px);
         }
     `}

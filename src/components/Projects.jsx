@@ -33,6 +33,7 @@ const StyledProjectGallery = styled.div`
 `
 
 export default function Projects() {
+	
 	const { darkMode } = useContext(ThemeContext);
 
 	return (

@@ -51,6 +51,7 @@ const StyledProjectCard = styled.div`
 		width: 100%;
 		overflow: hidden;
 		position: relative;
+		border-radius: 10px;
 		& img {
 			z-index: 0;
 			height: 200px;
@@ -63,7 +64,7 @@ const StyledProjectCard = styled.div`
 			z-index: 10;
 			position: absolute;
 			color: ${colors.bodyDark};
-			background: ${colors.primary};
+			background: ${colors.gradienPrimaryColor};
 			box-shadow: 0 0 10px rgba(0,0,0,0.5);
 			padding: 0.4rem 0.6rem;
 			font-style: italic;

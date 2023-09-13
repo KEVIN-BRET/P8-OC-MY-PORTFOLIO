@@ -11,16 +11,16 @@ const colors = {
 
   bodyLight: '#3c3e41',
   bodyLightNotHover: 'lightgrey',
-  
+
   bodyDark: '#e6eaef',
   bodyDarkNotHover: 'grey',
 
 
-
-
+  gradienPrimaryColor: 'linear-gradient(145deg, #239eba, #5cbdd4)',
+    // gradienPrimaryColor: 'linear-gradient(145deg, rgba(35,158,186,1) 0%, rgba(92,189,212,1) 70%);',
 
   gradientBoxDark: 'linear-gradient(145deg, #1e2024, #23272b)',
-  
+
   gradientBoxLight: 'linear-gradient(145deg, #e2e8ec, #ffffff)',
 
   boxShadowLight: '5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff',
@@ -65,7 +65,7 @@ const colors = {
 export default colors
 
 
-  
+
 
 
 // :root {

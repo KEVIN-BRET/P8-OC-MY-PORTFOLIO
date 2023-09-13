@@ -82,8 +82,10 @@ const StyledNav = styled.div`
 				&:hover {
 				color: ${colors.white};
 				background: ${colors.primary};
-				transform: translateY(-3px);
+				
+				background: ${colors.gradienPrimaryColor};
 	}
+				transform: translateY(-3px);
 		}
 
 
@@ -103,10 +105,11 @@ const StyledBacToTop = styled.div`
 	position: fixed;
     bottom: 50px;
     right: 50px;
+	z-index: 200;
     ${'' /* cursor: pointer;
 	font-size: 3rem;
 	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
-    z-index: 999;
+    
     width: 50px;
     height: 50px;
     line-height: 46px;
@@ -124,11 +127,11 @@ const StyledBacToTop = styled.div`
 `
 
 function handleNavigation(event, targetId) {
-    event.preventDefault();
-    const target = document.getElementById(targetId);
-    if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
-    }
+	event.preventDefault();
+	const target = document.getElementById(targetId);
+	if (target) {
+		target.scrollIntoView({ behavior: "smooth" });
+	}
 }
 
 
@@ -159,42 +162,46 @@ export default function Header() {
 
 			<StyledHeader $isDarkMode={darkMode} className={isScrolled ? 'header--scrolled' : ''}>
 				<StyledLogo $isDarkMode={darkMode}>
-					<StyledProfilePhoto src={profilePhoto} alt="logo" $isDarkMode={darkMode}/>
+					<StyledProfilePhoto src={profilePhoto} alt="logo" $isDarkMode={darkMode} />
 					<h3>Kevin BRET</h3>
 				</StyledLogo>
 
 				<ToggleThemeButton />
 
 				<StyledNav $isDarkMode={darkMode}>
-                    <ul className='header__nav'>
-                        <li>
-                            <a href="#accueil" onClick={(e) => handleNavigation(e, "accueil")}>
-                                Accueil
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#skills" onClick={(e) => handleNavigation(e, "skills")}>
-                                Skills
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#projects" onClick={(e) => handleNavigation(e, "projects")}>
-                                Projets
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#contact" onClick={(e) => handleNavigation(e, "contact")}>
-                                Contact
-                            </a>
-                        </li>
-                    </ul>
-                    <div className="cv">Télécharger mon CV</div>
-                </StyledNav>
+					<ul className='header__nav'>
+						<li>
+							<a href="#accueil" onClick={(e) => handleNavigation(e, "accueil")}>
+								Accueil
+							</a>
+						</li>
+						<li>
+							<a href="#skills" onClick={(e) => handleNavigation(e, "skills")}>
+								Skills
+							</a>
+						</li>
+						<li>
+							<a href="#projects" onClick={(e) => handleNavigation(e, "projects")}>
+								Projets
+							</a>
+						</li>
+						<li>
+							<a href="#contact" onClick={(e) => handleNavigation(e, "contact")}>
+								Contact
+							</a>
+						</li>
+					</ul>
+					<div className="cv">Télécharger mon CV</div>
+				</StyledNav>
 
 			</StyledHeader>
 
 			<StyledBacToTop $isDarkMode={darkMode} className={isScrolled ? 'page--scrolled' : ''}>
-				<RoundButton className="symbol" symbol="↑"/>
+
+				<a href="#accueil" onClick={(e) => handleNavigation(e, "accueil")}>
+					<RoundButton className="symbol" symbol="↑" />
+				</a>
+
 			</StyledBacToTop>
 		</>
 	);
