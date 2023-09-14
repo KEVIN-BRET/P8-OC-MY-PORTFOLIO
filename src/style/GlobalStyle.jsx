@@ -11,6 +11,10 @@ ${'' /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@40
 		scroll-behavior: smooth;
 	}
 	
+	input, textarea:focus {
+		outline: none;
+		}
+
    	*,
 	::before,
 	::after {
@@ -21,7 +25,13 @@ ${'' /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@40
 		box-sizing: border-box;
 		font-family: 'Montserrat';
 		font-style: normal;
+		/* ? désactivation de la bordure au focus */
+		input:focus {
+		outline: none;
+		}
 	}
+
+	
 
     body {
         background-color: ${({ isDarkMode }) =>

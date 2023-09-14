@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import photo from '../assets/images/avatar.png';
+import photo from '../assets/images/profile.webp';
 
 import colors from '../style/colors';
 import { useContext } from 'react';
@@ -36,7 +36,7 @@ const StyledAboutMe = styled.div`
 	max-width: 1440px;
 	gap: 3rem;
 	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
-	@media screen and (max-width: 1200px) {
+	@media screen and (max-width: 1100px) {
 		flex-direction: column-reverse;
 		
 	}
@@ -84,6 +84,15 @@ const StyledPhoto = styled.div`
 	& img {
 		height: 100%;
 	}
+	@media screen and (max-width: 1100px) {
+		height: 400px;
+		margin: 0 1rem;
+		
+	}
+	${'' /* @media screen and (max-width: 900px) {
+		height: 300px;
+		
+	} */}
 `
 
 export default function AboutMe() {

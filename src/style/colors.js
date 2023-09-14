@@ -29,6 +29,8 @@ const colors = {
 
   inputBackgroungDark: '#191b1e',
 
+  innerShadowDark: '1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset', 
+
   // boxShadowDark: 'inset 21px 21px 19px #181a1d, inset -21px -21px 19px #202225',
 
   //   background1: 'linear - gradient(145deg, #1e2024, #23272b)';

@@ -24,6 +24,7 @@ const MAIL_TO_KEVIN = 'mailto:kevinbret.dev@gmail.com'
 
 
 const StyledContact = styled.div`
+
 	margin: 2rem auto;
 	padding-top: 120px;
 	width: 80%;
@@ -33,6 +34,11 @@ const StyledContact = styled.div`
 	align-items: center;
 	justify-content: center;
 	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
+	@media screen and (max-width: 1000px) {
+			flex-direction: column;
+			width: 100%;
+			${'' /* gap: 0.5rem; */}
+		}
 	& h1 {
 		font-size: 2rem;
 		margin-bottom: 2rem;
@@ -45,6 +51,11 @@ const StyledContainer = styled.div`
 	align-items: flex-start;  
 	gap: 2rem;
 	${'' /* height: auto; */}
+	@media screen and (max-width: 1000px) {
+			flex-direction: column;
+			width: 90%;
+			${'' /* gap: 0.5rem; */}
+		}
 	
 `
 
@@ -61,6 +72,9 @@ const StyledInfos = styled.div`
 	background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
     box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
 	transition: 0.3s ease;
+	@media screen and (max-width: 1000px) {
+				width: 100%;
+			}
 	& .thumbnail {
 		height: 200px;
 		width: 100%;
@@ -103,48 +117,62 @@ const StyledForm = styled.div`
 	background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
     box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
 	transition: 0.3s ease;
+	@media screen and (max-width: 1000px) {
+				width: 100%;
+			}
 	& form {
 		display: flex;
 		flex-direction: column;
-		
 			& div {
 			display: flex;
 			flex-direction: column;
 			width: 100%;
 			margin: 0.5rem 0;
-			& input {
-				background-color: ${({ $isDarkMode }) => $isDarkMode ? colors.inputBackgroungDark : "white"};
+			& input, textarea {
 				border-radius: 6px;
 				height: 55px;
 				transition: var(--transition);
-				border: 2px solid #191b1e;
-				padding: 0 15px;
+				${'' /* border: 2px solid #191b1e; */}
+				padding: 15px;
 				font-size: 1rem;
+				background-color: ${({ $isDarkMode }) => $isDarkMode ? colors.inputBackgroungDark : "white"};
 				color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
-
-				box-shadow: var(--inner-shadow);
+				border: ${({ $isDarkMode }) => $isDarkMode ? "2px solid #191b1e" : "2px solid #DADADA"};
+				box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.innerShadowDark : ""};
 				letter-spacing: 1px;
 				}
 				& label {
 					margin-bottom: 0.5rem;
 				}
 			}
+			& textarea:focus {
+				border-color: ${colors.primary};
+			}
+			& input:focus {
+				border-color: ${colors.primary};
+			}
 			& .message-container textarea {
 				width: 100%;
 				height: 235px;
 				resize: none;
+				
 		}
+		
 		
 		& .name-and-phone {
 			display: flex;
 			flex-direction: row;
 			width: 100%;
 			gap: 2rem;
+			@media screen and (max-width: 1000px) {
+				flex-direction: column;
+				gap: 0.5rem;
+			}
 		}
 		
 	}
-
-	`
+	
+`
 
 export default function Contact() {
 
