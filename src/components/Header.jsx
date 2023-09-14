@@ -6,7 +6,6 @@ import colors from '../style/colors';
 import { ThemeContext } from '../utils/context/ThemeProvider';
 import RoundButton from './RoundButton';
 
-
 const StyledLogo = styled.div`
 	display: flex;
 	align-items: center;
@@ -15,8 +14,49 @@ const StyledLogo = styled.div`
 	gap: 1rem;
 	transition: 0.3s ease;
 	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
-	
+	& h3 {
+		@media screen and (max-width: 1100px) {
+				display: none;
+			}
+	}
+	& .circle {
+		position: relative;
+		display: flex;
+		border: 2px solid lightgray;
+		width: 65px;
+		min-width: 65px;
+		height: 65px;
+		border-radius: 50%;
+		object-fit: cover;	
+		background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
+		box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
+
+		& img {
+			@media screen and (max-width: 1100px) {
+				display: none;
+			}
+		}
+			
+		& .mobileTitle {
+			position: absolute;
+			left: calc(50% - 1rem);
+			top: calc(50% - 1rem);
+			display: none;
+			@media screen and (max-width: 1100px) {
+				display: flex;
+			}
+		}
+		
+	}
+	& h3 {
+	font-family: 'Permanent Marker', cursive;
+	font-size: 1.5rem;
+	}
+	&:hover {
+		color: ${colors.primary};
+	}
 `
+
 const StyledHeader = styled.div`
 	background-color: ${({ $isDarkMode }) => $isDarkMode ? colors.backgroundDark : colors.backgroundLight};
 	${'' /* border-bottom: 1px solid var(--color-lightgray); */}
@@ -90,16 +130,7 @@ const StyledNav = styled.div`
 
 
 `
-const StyledProfilePhoto = styled.img`
-	border: 2px solid lightgray;
-	display: flex;
-	width: 65px;
-	height: 65px;
-	border-radius: 50%;
-	object-fit: cover;	
-	background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
-	box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
-`
+
 
 const StyledBacToTop = styled.div`
 	position: fixed;
@@ -123,6 +154,10 @@ const StyledBacToTop = styled.div`
 	&.page--scrolled {
     opacity: 1;
     visibility: visible;
+	@media screen and (max-width: 900px) {
+		bottom: 20px;
+    	right: 20px;
+	}
 }
 `
 
@@ -156,9 +191,13 @@ export default function Header() {
 
 			<StyledHeader $isDarkMode={darkMode} className={isScrolled ? 'header--scrolled' : ''}>
 				<StyledLogo $isDarkMode={darkMode}>
-					<StyledProfilePhoto src={profilePhoto} alt="logo" $isDarkMode={darkMode} />
-					<h3>Kevin BRET</h3>
+					<div className="circle">
+						<img src={profilePhoto} alt="logo" $isDarkMode={darkMode} />
+						<h3 className='mobileTitle'>KB</h3>
+					</div>
+					<h3 className='desktopTitle'>Kevin BRET</h3>
 				</StyledLogo>
+
 
 				<ToggleThemeButton />
 
