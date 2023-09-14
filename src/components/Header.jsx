@@ -6,11 +6,15 @@ import colors from '../style/colors';
 import { ThemeContext } from '../utils/context/ThemeProvider';
 import RoundButton from './RoundButton';
 
+import burgerMenu from '../assets/images/burger-menu.png';
+
+
 const StyledLogo = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin: 1rem 0;
+	margin-right: 2rem;
 	gap: 1rem;
 	transition: 0.3s ease;
 	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
@@ -83,13 +87,30 @@ const StyledHeader = styled.div`
     }
 `
 
+const StyledBurgerMenu = styled.img`
+	
+			display: flex;
+			align-items: center;
+			height: 50px;
+			width: 50px;
+			cursor: pointer;
+			@media screen and (min-width: 1000px) {
+				display: none;
+			}
+		
+`
+
 const StyledNav = styled.div`
-		display: flex;
+		display: none;
 		align-items: center;
 		margin: 0 1rem;
+		@media screen and (min-width: 1000px) {
+				display: flex;
+			}
 		
 		& ul {
 			display: flex;
+			align-items: center;
 			gap: 1rem;
 			margin: 1rem;
 			color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
@@ -198,11 +219,14 @@ export default function Header() {
 					<h3 className='desktopTitle'>Kevin BRET</h3>
 				</StyledLogo>
 
-
 				<ToggleThemeButton />
+
+				<StyledBurgerMenu src={burgerMenu} alt="burgerMenu"/>
+
 
 				<StyledNav $isDarkMode={darkMode}>
 					<ul className='header__nav'>
+
 						<li>
 							<a href="#accueil" >
 								Accueil
