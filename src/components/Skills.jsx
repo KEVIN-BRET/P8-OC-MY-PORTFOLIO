@@ -114,7 +114,8 @@ const StyledCard = styled.div`
         }
         & ul li {
             margin-left: 1rem;
-			margin-bottom: 0.2rem;
+			margin-bottom: 0.4rem;
+			font-size: 0.9rem;
             font-style: italic; 
             list-style: inherit;
             &:hover {
@@ -176,9 +177,9 @@ function Skills() {
 					</div>
 					<div className={`content ${activeCards.frontend && 'active'}`}>
 						<ul>
-							<li>Intégration de maquette</li>
-							<li>Responsive design</li>
-							<li>Utilisation de Sass</li>
+							<li>Intégrer du contenu conformément à une maquette,</li>
+							<li>Implémenter une interface responsive,</li>
+							<li>Utilisation des fonctionnalités Sass</li>
 						</ul>
 					</div>
 				</StyledCard>
@@ -194,9 +195,11 @@ function Skills() {
 					</div>
 					<div className={`content ${activeCards.jsReact && 'active'}`}>
 						<ul>
-							<li>Intégration de maquette</li>
-							<li>Responsive design</li>
-							<li>Utilisation de Sass</li>
+							<li>Manipuler les éléments du DOM,</li>
+							<li>Récupérer des données via des formulaires,</li>
+							<li>Gérer les évènements utilisateur,</li>
+							<li>Interagir avec des API externe,</li>
+							<li>Manipuler des données au format JSON</li>
 						</ul>
 					</div>
 				</StyledCard>
@@ -213,9 +216,12 @@ function Skills() {
 					</div>
 					<div className={`content ${activeCards.backendJs && 'active'}`}>
 						<ul>
-							<li>Intégration de maquette</li>
-							<li>Responsive design</li>
-							<li>Utilisation de Sass</li>
+							<li>Node.Js / Express.Js / MongoDB :</li>
+							<li>Implémenter, un modèle logique de donner,</li>
+							<li>Mettre en œuvre des opérations CRUD,</li>
+							<li>Stocker des données de manière sécurisée,</li>
+							<li>Intégration d'un système d'authentification par JWT,</li>
+							<li>Utilisation des bonnes pratiques du Green Code</li>
 						</ul>
 					</div>
 				</StyledCard>
@@ -231,9 +237,10 @@ function Skills() {
 					</div>
 					<div className={`content ${activeCards.seoDebug && 'active'}`}>
 						<ul>
-							<li>Intégration de maquette</li>
-							<li>Responsive design</li>
-							<li>Utilisation de Sass</li>
+							<li>Optimiser les performances d’un site web,</li>
+							<li>Débugger un site web grâce aux Chrome DevTools,</li>
+							<li>Optimisation du référencement naturel d'un site web,</li>
+							<li>Rédiger un cahier de recette pour tester un site</li>
 						</ul>
 					</div>
 				</StyledCard>
@@ -243,15 +250,17 @@ function Skills() {
 						<img src={darkMode ? userLogoDark : userLogoLight} alt="JavaScript" />
 						<img src={darkMode ? bookLogoDark : bookLogoLight} alt="React" />
 					</StyledLogosContainer>
-					<h3>En cours d'apprentissage ...</h3>
+					<h3>Compétences à développer</h3>
 					<div className="moreContentBtn" onClick={() => handleToggle('learning')}>
 						<RoundButton symbol={activeCards.learning ? "-" : "+"} />
 					</div>
 					<div className={`content ${activeCards.learning && 'active'}`}>
 						<ul>
-							<li>Intégration de maquette</li>
-							<li>Responsive design</li>
-							<li>Utilisation de Sass</li>
+							<li>Les frameworks CSS Bootstrap & Tailwin </li>
+							<li>Le framework Next.Js</li>
+							<li>Les différents tests en JavaScript</li>
+							<li>TypeScript</li>
+							<li>Wordpress</li>
 						</ul>
 					</div>
 				</StyledCard>
