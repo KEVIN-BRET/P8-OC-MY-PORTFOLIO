@@ -29,6 +29,7 @@ import userLogoDark from '../assets/images/logos/user-dark.png';
 import userLogoLight from '../assets/images/logos/user-light.png';
 import bookLogoLight from '../assets/images/logos/book-light.png';
 import bookLogoDark from '../assets/images/logos/book-dark.png';
+import RoundButton from './RoundButton';
 
 const StyledSkills = styled.div`
 	margin: 2rem auto;
@@ -52,36 +53,74 @@ const StyledSkills = styled.div`
 const StyledCardsContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
 	gap: 2rem;
 `;
 
 const StyledCard = styled.div`
+	position: relative;
     width: 350px;
-    height: auto;
+    height: 130px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
     border-radius: 6px;
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
     cursor: pointer;
     background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
     box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
-    transition: 0.3s ease;
-        &:hover {
-            color: ${colors.bodyDark};
-            background: ${colors.gradienPrimaryColor};
-            transform: translateY(-3px);
-			& h2 {
-				color: ${colors.white};
-				transition: 0.3s ease;
-			}
-        }
+    transition: all 0.3s ease;
+	&.active {
+		height: auto;
+		background: ${colors.primary};
+	}
+    &:hover {
+        ${'' /* color: ${colors.bodyDark}; */}
+        background: ${colors.gradienPrimaryColor};
+        transform: translateY(-3px);
+		& h3 {
+			${'' /* color: ${colors.white}; */}
+			transition: 0.3s ease;
+		}
+    }
 	& h2,h3 {
 		color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
 	}
+	& .moreContentBtn {
+		position: absolute;
+		bottom: -1.5rem;
+		scale: 0.6;
+		z-index: 10;
+	}
+	& .content {
+		visibility: hidden;
+        margin-top: 1rem;
+        margin-bottom: 0.3rem;
+        padding: 1rem;
+        width: 100%;
+        border-radius: 6px;
+        background-color: ${colors.backgroundLight};
+        color: ${colors.bodyLight};
+        transform: scaleY(0);
+        transform-origin: top;  // Ce paramètre indique que le contenu s'étend à partir du haut
+        transition: transform 0.3s ease;
+        ${'' /* overflow: hidden; */}
+
+        &.active {
+			visibility: visible;
+            transform: scaleY(1);
+        }
+        & ul li {
+            margin-left: 1rem;
+            font-style: italic; 
+            list-style: inherit;
+            &:hover {
+                color: ${colors.primary};
+            }
+        }
+    }
 `;
 
 const StyledLogosContainer = styled.div`
@@ -96,15 +135,22 @@ const StyledLogosContainer = styled.div`
 		}
 	`;
 
-function Skills() {
+function Skills({ LogoDark, LogoLight }) {
 	const { darkMode } = useContext(ThemeContext);
-	const [isHovered, setIsHovered] = useState(false);
+
+	const [active, setActive] = useState(false);
+
+	const handleToggle = () => {
+		setActive(!active);
+	};
+
+	// const [isHovered, setIsHovered] = useState(false);
 
 	// let currentLogo;
 	// if (isHovered) {
-	// 	currentLogo = logoDark;
+	// 	currentLogo = LogoDark;
 	// } else {
-	// 	currentLogo = darkMode && logoDark ? logoDark : logoLight;
+	// 	currentLogo = darkMode && LogoDark ? LogoDark : LogoLight;
 	// }
 
 	return (
@@ -113,9 +159,10 @@ function Skills() {
 
 			<StyledCardsContainer>
 				<StyledCard
+					className={`card ${active && 'active'}`}
 					$isDarkMode={darkMode}
-					onMouseEnter={() => setIsHovered(true)}
-					onMouseLeave={() => setIsHovered(false)}
+				// onMouseEnter={() => setIsHovered(true)}
+				// onMouseLeave={() => setIsHovered(false)}
 				>
 					<StyledLogosContainer className='logos'>
 						{/* logo html5 */}
@@ -125,13 +172,25 @@ function Skills() {
 						{/* logo sass */}
 						{darkMode ? <img src={sassLogoDark} alt="CSS" /> : <img src={sassLogoLight} alt="CSS" />}
 					</StyledLogosContainer>
-					<h3>Intégration (front-end)</h3>
+					<h3>Intégration Front-end</h3>
+
+					<div className="moreContentBtn" onClick={handleToggle}>
+						<RoundButton symbol="+" />
+					</div>
+
+					<div className={`content ${active && 'active'}`}>
+						<ul>
+							<li>Intégration de maquette</li>
+							<li>Responsive design</li>
+							<li>Utilisation de Sass</li>
+						</ul>
+					</div>
 				</StyledCard>
 
 				<StyledCard
 					$isDarkMode={darkMode}
-					onMouseEnter={() => setIsHovered(true)}
-					onMouseLeave={() => setIsHovered(false)}
+				// onMouseEnter={() => setIsHovered(true)}
+				// onMouseLeave={() => setIsHovered(false)}
 				>
 					<StyledLogosContainer className='logos'>
 						{/* logo JS */}
@@ -140,12 +199,15 @@ function Skills() {
 						{darkMode ? <img src={reactLogoDark} alt="HTML" /> : <img src={reactLogoLight} alt="HTML" />}
 					</StyledLogosContainer>
 					<h3>JavaScript & React Js</h3>
+					<div className="more">
+						<RoundButton symbol="+" />
+					</div>
 				</StyledCard>
 
 				<StyledCard
 					$isDarkMode={darkMode}
-					onMouseEnter={() => setIsHovered(true)}
-					onMouseLeave={() => setIsHovered(false)}
+				// onMouseEnter={() => setIsHovered(true)}
+				// onMouseLeave={() => setIsHovered(false)}
 				>
 					<StyledLogosContainer className='logos'>
 						{/* logo Node */}
@@ -155,13 +217,16 @@ function Skills() {
 						{/* logo MongoDB */}
 						{darkMode ? <img src={mongoLogoDark} alt="HTML" /> : <img src={mongoLogoLight} alt="HTML" />}
 					</StyledLogosContainer>
-					<h3>Back-end (JavaScript)</h3>
+					<h3>Back-end JavaScript</h3>
+					<div className="more">
+						<RoundButton symbol="+" />
+					</div>
 				</StyledCard>
 
 				<StyledCard
 					$isDarkMode={darkMode}
-					onMouseEnter={() => setIsHovered(true)}
-					onMouseLeave={() => setIsHovered(false)}
+				// onMouseEnter={() => setIsHovered(true)}
+				// onMouseLeave={() => setIsHovered(false)}
 				>
 					<StyledLogosContainer className='logos'>
 						{/* logo Seo */}
@@ -170,12 +235,15 @@ function Skills() {
 						{darkMode ? <img src={debugLogoDark} alt="HTML" /> : <img src={debugLogoLight} alt="HTML" />}
 					</StyledLogosContainer>
 					<h3>SEO Optimisation Debug</h3>
+					<div className="more">
+						<RoundButton symbol="+" />
+					</div>
 				</StyledCard>
 
 				<StyledCard
 					$isDarkMode={darkMode}
-					onMouseEnter={() => setIsHovered(true)}
-					onMouseLeave={() => setIsHovered(false)}
+				// onMouseEnter={() => setIsHovered(true)}
+				// onMouseLeave={() => setIsHovered(false)}
 				>
 					<StyledLogosContainer className='logos'>
 						{/* logo User */}
@@ -184,6 +252,9 @@ function Skills() {
 						{darkMode ? <img src={bookLogoDark} alt="HTML" /> : <img src={bookLogoLight} alt="HTML" />}
 					</StyledLogosContainer>
 					<h3>En cours d'apprentissage ...</h3>
+					<div className="more">
+						<RoundButton symbol="+" />
+					</div>
 				</StyledCard>
 
 			</StyledCardsContainer>

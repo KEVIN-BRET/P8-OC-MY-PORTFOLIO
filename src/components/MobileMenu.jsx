@@ -68,7 +68,7 @@ const StyledNavMobile = styled.div`
 
 	opacity: ${({ $isMenuOpen }) => ($isMenuOpen ? '1' : '0')};
 	display: ${({ $isMenuOpen }) => ($isMenuOpen ? 'flex' : 'none')};	
-	
+
 	z-index: 3000;
 	position: fixed;
 	width: 100%;
@@ -77,7 +77,7 @@ const StyledNavMobile = styled.div`
 	transition: 0.5s ease;
 	& .menu {
 		padding: 0.5rem 1.5rem;
-		width: 350px;
+		${'' /* width: 350px; */}
 		height: 100%;
 		background-color: ${({ $isDarkMode }) => $isDarkMode ? colors.backgroundDark : colors.backgroundLight};
 		display: flex;
@@ -87,18 +87,19 @@ const StyledNavMobile = styled.div`
 		& .mobileHeader {
 			${StyledLogo} {
 				& .circle img {
-					height: 100%;
-					width: 100%;
+					${'' /* height: 100%;
+					width: 100%; */}
 					@media screen and (max-width: 1100px) {
-						display: block; // Ou tout autre style que vous voulez appliquer
+						display: block; 
 					}
 				}
-			& h3 {
-				@media screen and (max-width: 1100px) {
-					display: block; // Ou tout autre style que vous voulez appliquer
+				& h3 {
+					@media screen and (max-width: 1100px) {
+						display: block; 
+						scale: 0.8;
+					}
 				}
 			}
-	}
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -107,6 +108,9 @@ const StyledNavMobile = styled.div`
 				color: ${colors.primary};
 			}
 		}
+			& .close {
+					scale: 0.8;
+				}
 		& .separation {
 			height: 1px;
 			width: 100%;
@@ -114,6 +118,7 @@ const StyledNavMobile = styled.div`
 			background-color: lightgray;
 		}
 		& .links {
+			margin-top: 1rem;
 			transform-origin: top;
 			transform: scale(80%);
 			display: flex;
@@ -129,19 +134,19 @@ const StyledNavMobile = styled.div`
 export default function MobileMenu({ isMenuOpen, onClose }) {
 	const { darkMode } = useContext(ThemeContext);
 
-	 // Cette fonction gère le clic à l'intérieur du menu mobile
-	 const handleMenuClick = (event) => {
-        // Trouver le lien le plus proche de l'élément cliqué
-        let link = event.target.closest('a');
-        
-        // Si un lien a été cliqué
-        if (link) {
-            onClose(); // Fermer le menu
-        }
-    };
+	// Cette fonction gère le clic à l'intérieur du menu mobile
+	const handleMenuClick = (event) => {
+		// Trouver le lien le plus proche de l'élément cliqué
+		let link = event.target.closest('a');
+
+		// Si un lien a été cliqué
+		if (link) {
+			onClose(); // Fermer le menu
+		}
+	};
 
 	return (
-		<StyledNavMobile $isDarkMode={darkMode} $isMenuOpen={isMenuOpen}>
+		<StyledNavMobile $isDarkMode={darkMode} $isMenuOpen={isMenuOpen} onClick={() => { onClose() }}>
 			<div className="menu" onClick={handleMenuClick} >
 				<div className='mobileHeader'>
 					<StyledLogo $isDarkMode={darkMode} $inMobileNav>
@@ -164,10 +169,10 @@ export default function MobileMenu({ isMenuOpen, onClose }) {
 				<div className="separation"></div>
 
 				<Navigation $isDarkMode={darkMode} isMobile={true} onClick={() => {
-						onClose();
-						console.log("Closing menu...");
-						// setIsMenuOpen(false)
-					}}/>
+					onClose();
+					console.log("Closing menu...");
+					// setIsMenuOpen(false)
+				}} />
 
 				<div className="separation"></div>
 
