@@ -101,8 +101,12 @@ const StyledCard = styled.div`
         padding: 1rem;
         width: 100%;
         border-radius: 6px;
+
         background-color: ${colors.backgroundLight};
         color: ${colors.bodyLight};
+
+		${'' /* background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
+        color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight}; */}
         transform: scaleY(0);
         transform-origin: top;  // Ce paramètre indique que le contenu s'étend à partir du haut
         transition: transform 0.3s ease;
