@@ -173,7 +173,12 @@ export default function Header() {
 				<StyledBurgerMenu
 					src={burgerMenu}
 					alt="burgerMenu"
-					onClick={() => setIsMenuOpen(!isMenuOpen)}
+					onClick={() => {
+						setIsMenuOpen(true)
+						console.log("Menu opened ...");
+						console.log(!isMenuOpen);
+					}} 
+					// onClose={() => setIsMenuOpen(false)}
 				/>
 
 				<div className='nav-cv'>
@@ -185,7 +190,7 @@ export default function Header() {
 
 			<MobileMenu
 				$isDarkMode={darkMode}
-				$isOpen={isMenuOpen}
+				isMenuOpen={isMenuOpen}
 				onClose={() => setIsMenuOpen(false)}
 			/>
 
