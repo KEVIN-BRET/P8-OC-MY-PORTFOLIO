@@ -1,14 +1,17 @@
 import { useState, useEffect, useContext } from 'react';
+
 import ToggleThemeButton from './ToggleThemeButton';
-import styled from 'styled-components';
-import colors from '../style/colors';
-import { ThemeContext } from '../utils/context/ThemeProvider';
 import RoundButton from './RoundButton';
+import DownloadCVButton from './DownloadCVButton';
+import Navigation from './Navigation';
+import colors from '../style/colors';
+
+import styled from 'styled-components';
+import { ThemeContext } from '../utils/context/ThemeProvider';
 
 import avatar from '../assets/images/avatar.webp';
 import burgerMenu from '../assets/images/burger-menu.png';
 
-import DownloadCVButton from './DownloadCVButton';
 
 
 const StyledLogo = styled.div`
@@ -79,6 +82,11 @@ const StyledHeader = styled.div`
 	z-index: 100;
 	height: 100px;
 	transition: 0.5s ease;
+	& .nav-cv {
+		display: flex;
+		align-items: center;
+
+	}
 	
 	&.header--scrolled {
         height: 60px;
@@ -91,52 +99,6 @@ const StyledHeader = styled.div`
     }
 `
 
-
-const StyledNav = styled.div`
-		display: none;
-		align-items: center;
-		margin: 0 1rem;
-		@media screen and (min-width: 1000px) {
-				display: flex;
-			}
-		${props => props.inMobileNav && `
-			& .circle img {
-				@media screen and (max-width: 1100px) {
-					display: flex; // Ou tout autre style que vous voulez appliquer
-				}
-			}
-			& h3 {
-				@media screen and (max-width: 1100px) {
-					display: flex; // Ou tout autre style que vous voulez appliquer
-				}
-			}
-		`}
-		
-		& ul {
-			display: flex;
-			align-items: center;
-			gap: 1rem;
-			margin: 1rem;
-			color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
-			font-weight: 600;
-			transition: 0.5s ease;
-			&:hover {
-				color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDarkNotHover : colors.bodyLightNotHover};
-
-				
-			}
-			& li {
-				cursor: pointer;
-				&:hover {
-					color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
-					transition: 0.5s ease;
-				}
-			}
-		}
-	
-
-
-`
 
 const StyledBurgerMenu = styled.img`
 	display: flex;
@@ -251,32 +213,10 @@ export default function Header() {
 
 				<StyledBurgerMenu src={burgerMenu} alt="burgerMenu" />
 
-				<StyledNav $isDarkMode={darkMode}>
-					<ul className='header__nav'>
-
-						<li>
-							<a href="#accueil" >
-								Accueil
-							</a>
-						</li>
-						<li>
-							<a href="#skills" >
-								Skills
-							</a>
-						</li>
-						<li>
-							<a href="#projects">
-								Projets
-							</a>
-						</li>
-						<li>
-							<a href="#contact" >
-								Contact
-							</a>
-						</li>
-					</ul>
-				</StyledNav>
-				<DownloadCVButton />
+				<div className='nav-cv'>
+					<Navigation darkMode={darkMode} />
+					<DownloadCVButton />
+				</div>
 
 			</StyledHeader>
 
