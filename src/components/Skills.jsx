@@ -106,7 +106,7 @@ const StyledCard = styled.div`
         transform: scaleY(0);
         transform-origin: top;  // Ce paramètre indique que le contenu s'étend à partir du haut
         transition: transform 0.3s ease;
-        ${'' /* overflow: hidden; */}
+        box-shadow: ${colors.innerShadowDark};
 
         &.active {
 			visibility: visible;
@@ -114,6 +114,7 @@ const StyledCard = styled.div`
         }
         & ul li {
             margin-left: 1rem;
+			margin-bottom: 0.2rem;
             font-style: italic; 
             list-style: inherit;
             &:hover {
@@ -135,50 +136,45 @@ const StyledLogosContainer = styled.div`
 		}
 	`;
 
-function Skills({ LogoDark, LogoLight }) {
+function Skills() {
 	const { darkMode } = useContext(ThemeContext);
 
-	const [active, setActive] = useState(false);
+	// Initialiser le state avec un objet
+	const [activeCards, setActiveCards] = useState({
+		frontend: false,
+		jsReact: false,
+		backendJs: false,
+		seoDebug: false,
+		learning: false
+	});
 
-	const handleToggle = () => {
-		setActive(!active);
+	// Prend en argument l'identifiant de la carte
+	const handleToggle = (cardId) => {
+		setActiveCards(prevState => ({
+			...prevState,
+			[cardId]: !prevState[cardId]
+		}));
 	};
 
-	// const [isHovered, setIsHovered] = useState(false);
 
-	// let currentLogo;
-	// if (isHovered) {
-	// 	currentLogo = LogoDark;
-	// } else {
-	// 	currentLogo = darkMode && LogoDark ? LogoDark : LogoLight;
-	// }
 
 	return (
 		<StyledSkills id='skills' $isDarkMode={darkMode}>
 			<h1>Mes compétences</h1>
 
 			<StyledCardsContainer>
-				<StyledCard
-					className={`card ${active && 'active'}`}
-					$isDarkMode={darkMode}
-				// onMouseEnter={() => setIsHovered(true)}
-				// onMouseLeave={() => setIsHovered(false)}
-				>
+			
+				<StyledCard className={`card ${activeCards.frontend && 'active'}`} $isDarkMode={darkMode}>
 					<StyledLogosContainer className='logos'>
-						{/* logo html5 */}
-						{darkMode ? <img src={htmlLogoDark} alt="HTML" /> : <img src={htmlLogoLight} alt="HTML" />}
-						{/* logo css3 */}
-						{darkMode ? <img src={cssLogoDark} alt="CSS" /> : <img src={cssLogoLight} alt="CSS" />}
-						{/* logo sass */}
-						{darkMode ? <img src={sassLogoDark} alt="CSS" /> : <img src={sassLogoLight} alt="CSS" />}
+						<img src={darkMode ? htmlLogoDark : htmlLogoLight} alt="HTML" />
+						<img src={darkMode ? cssLogoDark : cssLogoLight} alt="CSS" />
+						<img src={darkMode ? sassLogoDark : sassLogoLight} alt="CSS" />
 					</StyledLogosContainer>
 					<h3>Intégration Front-end</h3>
-
-					<div className="moreContentBtn" onClick={handleToggle}>
-						<RoundButton symbol="+" />
+					<div className="moreContentBtn" onClick={() => handleToggle('frontend')}>
+						<RoundButton symbol={activeCards.frontend ? "-" : "+"} />
 					</div>
-
-					<div className={`content ${active && 'active'}`}>
+					<div className={`content ${activeCards.frontend && 'active'}`}>
 						<ul>
 							<li>Intégration de maquette</li>
 							<li>Responsive design</li>
@@ -187,73 +183,76 @@ function Skills({ LogoDark, LogoLight }) {
 					</div>
 				</StyledCard>
 
-				<StyledCard
-					$isDarkMode={darkMode}
-				// onMouseEnter={() => setIsHovered(true)}
-				// onMouseLeave={() => setIsHovered(false)}
-				>
+				<StyledCard className={`card ${activeCards.jsReact && 'active'}`} $isDarkMode={darkMode}>
 					<StyledLogosContainer className='logos'>
-						{/* logo JS */}
-						{darkMode ? <img src={jsLogoDark} alt="JavaScript" /> : <img src={jsLogoLight} alt="JavaScript" />}
-						{/* logo React */}
-						{darkMode ? <img src={reactLogoDark} alt="HTML" /> : <img src={reactLogoLight} alt="HTML" />}
+						<img src={darkMode ? jsLogoDark : jsLogoLight} alt="JavaScript" />
+						<img src={darkMode ? reactLogoDark : reactLogoLight} alt="React" />
 					</StyledLogosContainer>
-					<h3>JavaScript & React Js</h3>
-					<div className="more">
-						<RoundButton symbol="+" />
+					<h3>JavaScript React Js</h3>
+					<div className="moreContentBtn" onClick={() => handleToggle('jsReact')}>
+						<RoundButton symbol={activeCards.jsReact ? "-" : "+"} />
+					</div>
+					<div className={`content ${activeCards.jsReact && 'active'}`}>
+						<ul>
+							<li>Intégration de maquette</li>
+							<li>Responsive design</li>
+							<li>Utilisation de Sass</li>
+						</ul>
 					</div>
 				</StyledCard>
 
-				<StyledCard
-					$isDarkMode={darkMode}
-				// onMouseEnter={() => setIsHovered(true)}
-				// onMouseLeave={() => setIsHovered(false)}
-				>
+				<StyledCard className={`card ${activeCards.backendJs && 'active'}`} $isDarkMode={darkMode}>
 					<StyledLogosContainer className='logos'>
-						{/* logo Node */}
-						{darkMode ? <img src={nodeLogoDark} alt="JavaScript" /> : <img src={nodeLogoLight} alt="JavaScript" />}
-						{/* logo Express */}
-						{darkMode ? <img src={expressLogoDark} alt="HTML" /> : <img src={expressLogoLight} alt="HTML" />}
-						{/* logo MongoDB */}
-						{darkMode ? <img src={mongoLogoDark} alt="HTML" /> : <img src={mongoLogoLight} alt="HTML" />}
+						<img src={darkMode ? nodeLogoDark : nodeLogoLight} alt="JavaScript" />
+						<img src={darkMode ? expressLogoDark : expressLogoLight} alt="React" />
+						<img src={darkMode ? mongoLogoDark : mongoLogoLight} alt="React" />
 					</StyledLogosContainer>
 					<h3>Back-end JavaScript</h3>
-					<div className="more">
-						<RoundButton symbol="+" />
+					<div className="moreContentBtn" onClick={() => handleToggle('backendJs')}>
+						<RoundButton symbol={activeCards.backendJs ? "-" : "+"} />
+					</div>
+					<div className={`content ${activeCards.backendJs && 'active'}`}>
+						<ul>
+							<li>Intégration de maquette</li>
+							<li>Responsive design</li>
+							<li>Utilisation de Sass</li>
+						</ul>
 					</div>
 				</StyledCard>
 
-				<StyledCard
-					$isDarkMode={darkMode}
-				// onMouseEnter={() => setIsHovered(true)}
-				// onMouseLeave={() => setIsHovered(false)}
-				>
+				<StyledCard className={`card ${activeCards.seoDebug && 'active'}`} $isDarkMode={darkMode}>
 					<StyledLogosContainer className='logos'>
-						{/* logo Seo */}
-						{darkMode ? <img src={seoLogoDark} alt="JavaScript" /> : <img src={seoLogoLight} alt="JavaScript" />}
-						{/* logo Debug */}
-						{darkMode ? <img src={debugLogoDark} alt="HTML" /> : <img src={debugLogoLight} alt="HTML" />}
+						<img src={darkMode ? seoLogoDark : seoLogoLight} alt="JavaScript" />
+						<img src={darkMode ? debugLogoDark : debugLogoLight} alt="React" />
 					</StyledLogosContainer>
 					<h3>SEO Optimisation Debug</h3>
-					<div className="more">
-						<RoundButton symbol="+" />
+					<div className="moreContentBtn" onClick={() => handleToggle('seoDebug')}>
+						<RoundButton symbol={activeCards.seoDebug ? "-" : "+"} />
+					</div>
+					<div className={`content ${activeCards.seoDebug && 'active'}`}>
+						<ul>
+							<li>Intégration de maquette</li>
+							<li>Responsive design</li>
+							<li>Utilisation de Sass</li>
+						</ul>
 					</div>
 				</StyledCard>
 
-				<StyledCard
-					$isDarkMode={darkMode}
-				// onMouseEnter={() => setIsHovered(true)}
-				// onMouseLeave={() => setIsHovered(false)}
-				>
+				<StyledCard className={`card ${activeCards.learning && 'active'}`} $isDarkMode={darkMode}>
 					<StyledLogosContainer className='logos'>
-						{/* logo User */}
-						{darkMode ? <img src={userLogoDark} alt="JavaScript" /> : <img src={userLogoLight} alt="JavaScript" />}
-						{/* logo Book */}
-						{darkMode ? <img src={bookLogoDark} alt="HTML" /> : <img src={bookLogoLight} alt="HTML" />}
+						<img src={darkMode ? userLogoDark : userLogoLight} alt="JavaScript" />
+						<img src={darkMode ? bookLogoDark : bookLogoLight} alt="React" />
 					</StyledLogosContainer>
 					<h3>En cours d'apprentissage ...</h3>
-					<div className="more">
-						<RoundButton symbol="+" />
+					<div className="moreContentBtn" onClick={() => handleToggle('learning')}>
+						<RoundButton symbol={activeCards.learning ? "-" : "+"} />
+					</div>
+					<div className={`content ${activeCards.learning && 'active'}`}>
+						<ul>
+							<li>Intégration de maquette</li>
+							<li>Responsive design</li>
+							<li>Utilisation de Sass</li>
+						</ul>
 					</div>
 				</StyledCard>
 
