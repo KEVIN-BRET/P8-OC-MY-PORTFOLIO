@@ -175,8 +175,7 @@ export default function Header() {
 					alt="burgerMenu"
 					onClick={() => {
 						setIsMenuOpen(true)
-						console.log("Menu opened ...");
-						console.log(!isMenuOpen);
+						// console.log("Menu opened ...");
 					}} 
 					// onClose={() => setIsMenuOpen(false)}
 				/>

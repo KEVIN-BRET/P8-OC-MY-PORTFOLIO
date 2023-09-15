@@ -76,7 +76,6 @@ const StyledNavMobile = styled.div`
 	background-color: rgba(0, 0, 0, 0.8);
 	transition: 0.5s ease;
 	& .menu {
-		
 		padding: 0.5rem 1.5rem;
 		width: 350px;
 		height: 100%;
@@ -88,6 +87,8 @@ const StyledNavMobile = styled.div`
 		& .mobileHeader {
 			${StyledLogo} {
 				& .circle img {
+					height: 100%;
+					width: 100%;
 					@media screen and (max-width: 1100px) {
 						display: block; // Ou tout autre style que vous voulez appliquer
 					}
@@ -125,12 +126,23 @@ const StyledNavMobile = styled.div`
 
 
 
-export default function MobileMenu({ isMenuOpen, onClose, setIsMenuOpen }) {
+export default function MobileMenu({ isMenuOpen, onClose }) {
 	const { darkMode } = useContext(ThemeContext);
+
+	 // Cette fonction gère le clic à l'intérieur du menu mobile
+	 const handleMenuClick = (event) => {
+        // Trouver le lien le plus proche de l'élément cliqué
+        let link = event.target.closest('a');
+        
+        // Si un lien a été cliqué
+        if (link) {
+            onClose(); // Fermer le menu
+        }
+    };
 
 	return (
 		<StyledNavMobile $isDarkMode={darkMode} $isMenuOpen={isMenuOpen}>
-			<div className="menu">
+			<div className="menu" onClick={handleMenuClick} >
 				<div className='mobileHeader'>
 					<StyledLogo $isDarkMode={darkMode} $inMobileNav>
 						<div className="circle">
@@ -144,18 +156,18 @@ export default function MobileMenu({ isMenuOpen, onClose, setIsMenuOpen }) {
 						console.log("Closing menu...");
 						// setIsMenuOpen(false)
 					}}>
-						<RoundButton className="symbol" symbol="×" onClick={() => {
-							onClose();
-							console.log("Closing menu...");
-							// setIsMenuOpen(false)
-						}} />
+						<RoundButton className="symbol" symbol="×" />
 					</div>
 
 				</div>
 
 				<div className="separation"></div>
 
-				<Navigation $isDarkMode={darkMode} isMobile={true} />
+				<Navigation $isDarkMode={darkMode} isMobile={true} onClick={() => {
+						onClose();
+						console.log("Closing menu...");
+						// setIsMenuOpen(false)
+					}}/>
 
 				<div className="separation"></div>
 
