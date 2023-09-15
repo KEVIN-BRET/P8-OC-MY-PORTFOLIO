@@ -146,7 +146,8 @@ function Skills() {
 		jsReact: false,
 		backendJs: false,
 		seoDebug: false,
-		learning: false
+		learning: false,
+		softSkils: false
 	});
 
 	// Prend en argument l'identifiant de la carte
@@ -261,6 +262,27 @@ function Skills() {
 							<li>Les différents tests en JavaScript</li>
 							<li>TypeScript</li>
 							<li>Wordpress</li>
+						</ul>
+					</div>
+				</StyledCard>
+
+				<StyledCard className={`card ${activeCards.softSkils && 'active'}`} $isDarkMode={darkMode}>
+					<StyledLogosContainer className='logos'>
+						<img src={darkMode ? userLogoDark : userLogoLight} alt="JavaScript" />
+						<img src={darkMode ? bookLogoDark : bookLogoLight} alt="React" />
+					</StyledLogosContainer>
+					<h3>Mes Soft Skills ..</h3>
+					<div className="moreContentBtn" onClick={() => handleToggle('softSkils')}>
+						<RoundButton symbol={activeCards.softSkils ? "-" : "+"} />
+					</div>
+					<div className={`content ${activeCards.softSkils && 'active'}`}>
+						<ul>
+							{/* <li>Je suis HPI ! (ahah non je rigole XD),</li> */}
+							<li>Je suis sociable, j'aime communiquer,</li>
+							<li>Je suis curieux et j'aime apprendre en permanence,</li>
+							<li>J'ai une plutôt bonne capacité à m'adapter,</li>
+							<li>Je sais être autonome,</li>
+							<li>J'aime la musique, le cinéma, cuisiner ... et plein d'autres choses :)</li>
 						</ul>
 					</div>
 				</StyledCard>

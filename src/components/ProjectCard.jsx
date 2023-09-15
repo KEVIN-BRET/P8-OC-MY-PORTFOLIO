@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { useContext } from 'react';
 import { ThemeContext } from '../utils/context/ThemeProvider';
-// import RoundButton from './RoundButton'; 
+
+import ModaleContent from './ModaleContent';
+import { createPortal } from 'react-dom';
 
 import colors from '../style/colors';
 // import { ThemeContext } from '../utils/context/ThemeProvider';
@@ -122,7 +124,7 @@ const StyledNav = styled.div`
 	font-size: 0.9rem;
 	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
 	transition: 0.3s ease;
-	&>div {
+	&>a {
 		${'' /* text-decoration: underline; */}
 		font-style: italic;
 		transition: 0.3s ease;
@@ -138,18 +140,26 @@ const StyledNav = styled.div`
 `
 
 
-export default function ProjectCard({ id, title, cover, skills, name }) {
+export default function ProjectCard({ id, title, cover, skills, name, repo, demo }) {
 
 	const { darkMode } = useContext(ThemeContext);
+
+	const [showModal, setShowModal] = React.useState(false);
 
 	return (
 		<StyledProjectCard $isDarkMode={darkMode}>
 
-			<div className="thumbnail">
+			{showModal && createPortal(
+				<ModaleContent closeModal={() => setShowModal(false)} />,
+				document.body)}
+
+			<div
+				onClick={() => setShowModal(true)}
+				className="thumbnail">
 				<span className="name">{name}</span>
 				<img className='card__picture' src={cover} alt="" />
 				<span className="more">+ d'infos</span>
-			</div>
+			</div> 
 
 			<StyledSkillsContainer>
 				{skills.map((skill, index) => (
@@ -159,11 +169,11 @@ export default function ProjectCard({ id, title, cover, skills, name }) {
 				))}
 			</StyledSkillsContainer>
 
-			<h3>{title} <span className="arrow">➚</span></h3>
+			<h3 onClick={() => { console.log(showModal); setShowModal(true) }}>{title} <span className="arrow">➚</span></h3>
 
 			<StyledNav $isDarkMode={darkMode} >
-				<div>Live Demo<span className="arrow"> ➚</span></div>
-				<div>Repo GitHub<span className="arrow"> ➚</span></div>
+				<a href={demo} target="_blank" rel="noopener noreferrer">Live Demo<span className="arrow"> ➚</span></a>
+				<a href={repo} target="_blank" rel="noopener noreferrer">Repo GitHub<span className="arrow"> ➚</span></a>
 			</StyledNav>
 		</StyledProjectCard>
 	);

@@ -40,7 +40,7 @@ export default function Projects() {
 		<StyledProjects id='projects' $isDarkMode={darkMode}>
 			<h1>Mes projets</h1>
 			<StyledProjectGallery>
-				{projectsData.map(({ id,name, cover, title, skills }) =>
+				{projectsData.map(({ id,name, cover, title, skills, demo, repo }) =>
 				(
 					<ProjectCard key={id}
 						id={id}
@@ -48,6 +48,8 @@ export default function Projects() {
 						cover={cover}
 						title={title}
 						skills={skills}
+						demo={demo}
+						repo={repo}
 					/>
 				)
 				)}
