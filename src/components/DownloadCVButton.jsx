@@ -10,12 +10,14 @@ const StyledButton = styled.div`
 	justify-content: center;
 	color: ${colors.primary};
 	border-radius: 6px;
+	margin: 0 1rem;
 	padding: 10px;
 	height: 40px;
 	background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
 	box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
 	transition: 0.3s ease;
 	font-weight: 500;
+	
 
 		&:hover {
 		color: ${colors.white};

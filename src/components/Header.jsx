@@ -4,6 +4,9 @@ import ToggleThemeButton from './ToggleThemeButton';
 import RoundButton from './RoundButton';
 import DownloadCVButton from './DownloadCVButton';
 import Navigation from './Navigation';
+import FindMe from './FindMe';
+import BestSkill from './BestSkill';
+
 import colors from '../style/colors';
 
 import styled from 'styled-components';
@@ -11,7 +14,6 @@ import { ThemeContext } from '../utils/context/ThemeProvider';
 
 import avatar from '../assets/images/avatar.webp';
 import burgerMenu from '../assets/images/burger-menu.png';
-
 
 
 const StyledLogo = styled.div`
@@ -83,9 +85,11 @@ const StyledHeader = styled.div`
 	height: 100px;
 	transition: 0.5s ease;
 	& .nav-cv {
-		display: flex;
 		align-items: center;
-
+		display: none;
+		@media screen and (min-width: 1000px) {
+				display: flex;
+			}
 	}
 	
 	&.header--scrolled {
@@ -98,7 +102,6 @@ const StyledHeader = styled.div`
         }
     }
 `
-
 
 const StyledBurgerMenu = styled.img`
 	display: flex;
@@ -114,22 +117,25 @@ const StyledBurgerMenu = styled.img`
 const StyledNavMobile = styled.div`
 
 ${'' /* ------------------------------------------------------------------------------- */}
-	display: none;
+	${'' /* display: none; */}
+	${'' /* opacity: 0; */}
 ${'' /* ------------------------------------------------------------------------------- */}
 	
 	z-index: 3000;
 	position: fixed;
 	width: 100%;
-	height: 100vw;
+	height: 100%;
 	background-color: rgba(0, 0, 0, 0.8);
 	transition: 0.5s ease;
 	& .menu {
+		
 		padding: 0.5rem 1.5rem;
-		width: 400px;
+		width: 350px;
 		height: 100%;
 		background-color: ${({ $isDarkMode }) => $isDarkMode ? colors.backgroundDark : colors.backgroundLight};
 		display: flex;
 		flex-direction: column;
+		align-items: flex-start;
 		color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
 		& .mobileHeader {
 			${StyledLogo} {
@@ -151,6 +157,20 @@ ${'' /* ------------------------------------------------------------------------
 			& h3 {
 				color: ${colors.primary};
 			}
+		}
+		& .separation {
+			height: 1px;
+			width: 100%;
+			margin: 0.5rem 0;
+			background-color: lightgray;
+		}
+		& .links {
+			transform-origin: top;
+			transform: scale(80%);
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 1rem;
 		}
 	}
 `
@@ -214,7 +234,7 @@ export default function Header() {
 				<StyledBurgerMenu src={burgerMenu} alt="burgerMenu" />
 
 				<div className='nav-cv'>
-					<Navigation darkMode={darkMode} />
+					<Navigation darkMode={darkMode} isMobile={false} />
 					<DownloadCVButton />
 				</div>
 
@@ -234,13 +254,18 @@ export default function Header() {
 						<RoundButton className="symbol" symbol="×" />
 					</div>
 
+					<div className="separation"></div>
 
-					<h3 className='desktopTitle'>Kevin BRET</h3>
-					<h2>Menu test !</h2>
-					<h2>Menu test !</h2>
-					<h2>Menu test !</h2>
-					<h2>Menu test !</h2>
-					<h2>Menu test !</h2>
+					<Navigation darkMode={darkMode} isMobile={true} />
+
+					<div className="separation"></div>
+
+					<div className="links">
+						<FindMe />
+						{/* <BestSkill /> */}
+					</div>
+						<DownloadCVButton />
+
 				</div>
 			</StyledNavMobile>
 
