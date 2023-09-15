@@ -1,12 +1,14 @@
 import { useState, useEffect, useContext } from 'react';
-import profilePhoto from '../assets/images/3d-avatar.webp';
 import ToggleThemeButton from './ToggleThemeButton';
 import styled from 'styled-components';
 import colors from '../style/colors';
 import { ThemeContext } from '../utils/context/ThemeProvider';
 import RoundButton from './RoundButton';
 
+import avatar from '../assets/images/avatar.webp';
 import burgerMenu from '../assets/images/burger-menu.png';
+
+import DownloadCVButton from './DownloadCVButton';
 
 
 const StyledLogo = styled.div`
@@ -27,10 +29,11 @@ const StyledLogo = styled.div`
 		position: relative;
 		display: flex;
 		border: 2px solid lightgray;
-		width: 65px;
-		min-width: 65px;
-		height: 65px;
+		width: 50px;
+		min-width: 50px;
+		height: 50px;
 		border-radius: 50%;
+		padding: 3px;
 		object-fit: cover;	
 		background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
 		box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
@@ -55,6 +58,7 @@ const StyledLogo = styled.div`
 	& h3 {
 	font-family: 'Permanent Marker', cursive;
 	font-size: 1.5rem;
+	line-height: 1.3;
 	}
 	&:hover {
 		color: ${colors.primary};
@@ -87,18 +91,6 @@ const StyledHeader = styled.div`
     }
 `
 
-const StyledBurgerMenu = styled.img`
-	
-			display: flex;
-			align-items: center;
-			height: 50px;
-			width: 50px;
-			cursor: pointer;
-			@media screen and (min-width: 1000px) {
-				display: none;
-			}
-		
-`
 
 const StyledNav = styled.div`
 		display: none;
@@ -107,6 +99,18 @@ const StyledNav = styled.div`
 		@media screen and (min-width: 1000px) {
 				display: flex;
 			}
+		${props => props.inMobileNav && `
+			& .circle img {
+				@media screen and (max-width: 1100px) {
+					display: flex; // Ou tout autre style que vous voulez appliquer
+				}
+			}
+			& h3 {
+				@media screen and (max-width: 1100px) {
+					display: flex; // Ou tout autre style que vous voulez appliquer
+				}
+			}
+		`}
 		
 		& ul {
 			display: flex;
@@ -129,27 +133,64 @@ const StyledNav = styled.div`
 				}
 			}
 		}
-		& .cv {
-			cursor: pointer;
-			display: flex;
-			color: ${colors.primary};
-			border-radius: 6px;
-			padding: 10px;
-			background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
-			box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
-			transition: 0.3s ease;
-			font-weight: 500;
+	
 
-				&:hover {
-				color: ${colors.white};
-				background: ${colors.primary};
-				
-				background: ${colors.gradienPrimaryColor};
+
+`
+
+const StyledBurgerMenu = styled.img`
+	display: flex;
+	align-items: center;
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+	@media screen and (min-width: 1000px) {
+		display: none;
+	}	
+`
+
+const StyledNavMobile = styled.div`
+
+${'' /* ------------------------------------------------------------------------------- */}
+	display: none;
+${'' /* ------------------------------------------------------------------------------- */}
+	
+	z-index: 3000;
+	position: fixed;
+	width: 100%;
+	height: 100vw;
+	background-color: rgba(0, 0, 0, 0.8);
+	transition: 0.5s ease;
+	& .menu {
+		padding: 0.5rem 1.5rem;
+		width: 400px;
+		height: 100%;
+		background-color: ${({ $isDarkMode }) => $isDarkMode ? colors.backgroundDark : colors.backgroundLight};
+		display: flex;
+		flex-direction: column;
+		color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
+		& .mobileHeader {
+			${StyledLogo} {
+				& .circle img {
+					@media screen and (max-width: 1100px) {
+						display: block; // Ou tout autre style que vous voulez appliquer
+					}
+				}
+			& h3 {
+				@media screen and (max-width: 1100px) {
+					display: block; // Ou tout autre style que vous voulez appliquer
+				}
+			}
 	}
-				transform: translateY(-3px);
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			${'' /* margin: 0.5rem 1.5rem; */}
+			& h3 {
+				color: ${colors.primary};
+			}
 		}
-
-
+	}
 `
 
 
@@ -158,16 +199,6 @@ const StyledBacToTop = styled.div`
     bottom: 50px;
     right: 50px;
 	z-index: 200;
-    ${'' /* cursor: pointer;
-	font-size: 3rem;
-	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
-    
-    width: 50px;
-    height: 50px;
-    line-height: 46px;
-    border-radius: 50%;
-    text-align: center;
-	transition: 0.5s ease; */}
 	line-height: 46px;
 	border-radius: 50%;
 	visibility: hidden;
@@ -181,9 +212,6 @@ const StyledBacToTop = styled.div`
 	}
 }
 `
-
-
-
 
 export default function Header() {
 	const { darkMode } = useContext(ThemeContext);
@@ -213,7 +241,7 @@ export default function Header() {
 			<StyledHeader $isDarkMode={darkMode} className={isScrolled ? 'header--scrolled' : ''}>
 				<StyledLogo $isDarkMode={darkMode}>
 					<div className="circle">
-						<img src={profilePhoto} alt="logo" $isDarkMode={darkMode} />
+						<img src={avatar} alt="logo" $isDarkMode={darkMode} />
 						<h3 className='mobileTitle'>KB</h3>
 					</div>
 					<h3 className='desktopTitle'>Kevin BRET</h3>
@@ -221,8 +249,7 @@ export default function Header() {
 
 				<ToggleThemeButton />
 
-				<StyledBurgerMenu src={burgerMenu} alt="burgerMenu"/>
-
+				<StyledBurgerMenu src={burgerMenu} alt="burgerMenu" />
 
 				<StyledNav $isDarkMode={darkMode}>
 					<ul className='header__nav'>
@@ -248,10 +275,34 @@ export default function Header() {
 							</a>
 						</li>
 					</ul>
-					<div className="cv">Télécharger mon CV</div>
 				</StyledNav>
+				<DownloadCVButton />
 
 			</StyledHeader>
+
+			<StyledNavMobile $isDarkMode={darkMode}>
+				<div className="menu">
+					<div className='mobileHeader'>
+						<StyledLogo $isDarkMode={darkMode} inMobileNav>
+							<div className="circle">
+								<img src={avatar} alt="logo" $isDarkMode={darkMode} />
+							</div>
+							<h3 className='desktopTitle'>Kevin BRET</h3>
+						</StyledLogo>
+
+
+						<RoundButton className="symbol" symbol="×" />
+					</div>
+
+
+					<h3 className='desktopTitle'>Kevin BRET</h3>
+					<h2>Menu test !</h2>
+					<h2>Menu test !</h2>
+					<h2>Menu test !</h2>
+					<h2>Menu test !</h2>
+					<h2>Menu test !</h2>
+				</div>
+			</StyledNavMobile>
 
 			<StyledBacToTop $isDarkMode={darkMode} className={isScrolled ? 'page--scrolled' : ''}>
 
