@@ -4,8 +4,6 @@ import ToggleThemeButton from './ToggleThemeButton';
 import RoundButton from './RoundButton';
 import DownloadCVButton from './DownloadCVButton';
 import Navigation from './Navigation';
-import FindMe from './FindMe';
-import BestSkill from './BestSkill';
 
 import colors from '../style/colors';
 
@@ -14,6 +12,8 @@ import { ThemeContext } from '../utils/context/ThemeProvider';
 
 import avatar from '../assets/images/avatar.webp';
 import burgerMenu from '../assets/images/burger-menu.png';
+
+import MobileMenu from './MobileMenu';
 
 
 const StyledLogo = styled.div`
@@ -114,68 +114,6 @@ const StyledBurgerMenu = styled.img`
 	}	
 `
 
-const StyledNavMobile = styled.div`
-
-${'' /* ------------------------------------------------------------------------------- */}
-	${'' /* display: none; */}
-	${'' /* opacity: 0; */}
-${'' /* ------------------------------------------------------------------------------- */}
-	
-	z-index: 3000;
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.8);
-	transition: 0.5s ease;
-	& .menu {
-		
-		padding: 0.5rem 1.5rem;
-		width: 350px;
-		height: 100%;
-		background-color: ${({ $isDarkMode }) => $isDarkMode ? colors.backgroundDark : colors.backgroundLight};
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
-		& .mobileHeader {
-			${StyledLogo} {
-				& .circle img {
-					@media screen and (max-width: 1100px) {
-						display: block; // Ou tout autre style que vous voulez appliquer
-					}
-				}
-			& h3 {
-				@media screen and (max-width: 1100px) {
-					display: block; // Ou tout autre style que vous voulez appliquer
-				}
-			}
-	}
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			${'' /* margin: 0.5rem 1.5rem; */}
-			& h3 {
-				color: ${colors.primary};
-			}
-		}
-		& .separation {
-			height: 1px;
-			width: 100%;
-			margin: 0.5rem 0;
-			background-color: lightgray;
-		}
-		& .links {
-			transform-origin: top;
-			transform: scale(80%);
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 1rem;
-		}
-	}
-`
-
-
 const StyledBacToTop = styled.div`
 	position: fixed;
     bottom: 50px;
@@ -199,6 +137,7 @@ export default function Header() {
 	const { darkMode } = useContext(ThemeContext);
 	// est-ce que la page est scrollée ?
 	const [isScrolled, setIsScrolled] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -218,12 +157,12 @@ export default function Header() {
 	}, []);
 
 	return (
-		<>
+		<div>
 
 			<StyledHeader $isDarkMode={darkMode} className={isScrolled ? 'header--scrolled' : ''}>
 				<StyledLogo $isDarkMode={darkMode}>
 					<div className="circle">
-						<img src={avatar} alt="logo" $isDarkMode={darkMode} />
+						<img src={avatar} alt="logo" />
 						<h3 className='mobileTitle'>KB</h3>
 					</div>
 					<h3 className='desktopTitle'>Kevin BRET</h3>
@@ -231,43 +170,24 @@ export default function Header() {
 
 				<ToggleThemeButton />
 
-				<StyledBurgerMenu src={burgerMenu} alt="burgerMenu" />
+				<StyledBurgerMenu
+					src={burgerMenu}
+					alt="burgerMenu"
+					onClick={() => setIsMenuOpen(!isMenuOpen)}
+				/>
 
 				<div className='nav-cv'>
-					<Navigation darkMode={darkMode} isMobile={false} />
-					<DownloadCVButton />
+					<Navigation $isDarkMode={darkMode} isMobile={false} />
+					<DownloadCVButton $isDarkMode={darkMode} />
 				</div>
 
 			</StyledHeader>
 
-			<StyledNavMobile $isDarkMode={darkMode}>
-				<div className="menu">
-					<div className='mobileHeader'>
-						<StyledLogo $isDarkMode={darkMode} inMobileNav>
-							<div className="circle">
-								<img src={avatar} alt="logo" $isDarkMode={darkMode} />
-							</div>
-							<h3 className='desktopTitle'>Kevin BRET</h3>
-						</StyledLogo>
-
-
-						<RoundButton className="symbol" symbol="×" />
-					</div>
-
-					<div className="separation"></div>
-
-					<Navigation darkMode={darkMode} isMobile={true} />
-
-					<div className="separation"></div>
-
-					<div className="links">
-						<FindMe />
-						{/* <BestSkill /> */}
-					</div>
-						<DownloadCVButton />
-
-				</div>
-			</StyledNavMobile>
+			<MobileMenu
+				$isDarkMode={darkMode}
+				$isOpen={isMenuOpen}
+				onClose={() => setIsMenuOpen(false)}
+			/>
 
 			<StyledBacToTop $isDarkMode={darkMode} className={isScrolled ? 'page--scrolled' : ''}>
 
@@ -276,6 +196,6 @@ export default function Header() {
 				</a>
 
 			</StyledBacToTop>
-		</>
+		</div>
 	);
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useContext } from 'react';
+import { ThemeContext } from '../utils/context/ThemeProvider';
 
 import colors from '../style/colors';
 
@@ -29,6 +31,8 @@ const StyledButton = styled.div`
 `;
 
 export default function DownloadCVButton() {
-  return <StyledButton>Télécharger mon CV</StyledButton>;
+	const { darkMode } = useContext(ThemeContext);
+
+  return <StyledButton $isDarkMode={darkMode} >Télécharger mon CV</StyledButton>;
 }
 

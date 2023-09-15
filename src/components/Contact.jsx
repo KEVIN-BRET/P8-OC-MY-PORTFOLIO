@@ -214,33 +214,33 @@ export default function Contact() {
 					<form action="">
 
 						<div className="name-and-phone">
-							<div class="name-container">
-								<label for="name">Votre nom</label>
-								<input type="text" autoComplete="on" id="name" />
+							<div className="name-container">
+								<label htmlFor="name">Votre nom</label>
+								<input type="text" id="name" />
 								<span></span>
 							</div>
 
-							<div class="phone-container">
-								<label for="phone">N° de téléphone</label>
-								<input type="text" autoComplete="on" id="phone" />
+							<div className="phone-container">
+								<label htmlFor="phone">N° de téléphone</label>
+								<input type="text" id="phone" />
 								<span></span>
 							</div>
 						</div>
 
-						<div class="email-container">
-							<label for="mail">Email</label>
-							<input type="email" autocomplete="on" id="email" />
+						<div className="email-container">
+							<label htmlFor="mail">Email</label>
+							<input type="email" id="email" />
 							<span></span>
 						</div>
 
-						<div class="message-container">
-							<label for="message">Votre message</label>
+						<div className="message-container">
+							<label htmlFor="message">Votre message</label>
 							<textarea type="text" id="message" rows="" cols=""></textarea>
 							<span></span>
 						</div>
 
-						<div class="submit-container">
-							{/* <label for="submit">Envoyer</label> */}
+						<div className="submit-container">
+							{/* <label htmlFor="submit">Envoyer</label> */}
 							<input type="submit" id="submit" value="Envoyer" />
 							<span></span>
 						</div>
