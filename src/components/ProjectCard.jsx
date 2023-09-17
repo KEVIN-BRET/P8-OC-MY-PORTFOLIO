@@ -140,7 +140,7 @@ const StyledNav = styled.div`
 `
 
 
-export default function ProjectCard({ id, title, cover, skills, name, repo, demo }) {
+export default function ProjectCard({ id, title, cover, pictures, mobilePictures, skills, name, repo, demo }) {
 
 	const { darkMode } = useContext(ThemeContext);
 
@@ -150,7 +150,16 @@ export default function ProjectCard({ id, title, cover, skills, name, repo, demo
 		<StyledProjectCard $isDarkMode={darkMode}>
 
 			{showModal && createPortal(
-				<ModaleContent closeModal={() => setShowModal(false)} />,
+				<ModaleContent
+					title={title}
+					cover={cover}
+					pictures={pictures}
+					mobilePictures={mobilePictures}
+					skills={skills}
+					name={name}
+					demo={demo}
+					repo={repo}
+					closeModal={() => setShowModal(false)} />,
 				document.body)}
 
 			<div
@@ -159,7 +168,7 @@ export default function ProjectCard({ id, title, cover, skills, name, repo, demo
 				<span className="name">{name}</span>
 				<img className='card__picture' src={cover} alt="" />
 				<span className="more">+ d'infos</span>
-			</div> 
+			</div>
 
 			<StyledSkillsContainer>
 				{skills.map((skill, index) => (

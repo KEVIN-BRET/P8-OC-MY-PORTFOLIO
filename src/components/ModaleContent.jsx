@@ -22,6 +22,7 @@ const StyledModal = styled.div`
 	display: flex;
 	top: 50%;
 	left: 50%;
+	padding: 2rem;
 	transform: translate(-50%, -50%);
 	width: 80%;
 	height: 80%;
@@ -36,16 +37,53 @@ const StyledModal = styled.div`
 	}
 	& .content {
 		display: flex;
-		flex-direction: column;
+		${'' /* flex-direction: column; */}
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
+		width: 100%;
+		${'' /* height: auto; */}
 		margin: auto;
 		color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
+		overflow: hidden;
+			& .pictures {
+				display: flex;
+				${'' /* align-items: center; */}
+				justify-content: center;
+				flex-wrap: wrap;
+				${'' /* flex-direction: column; */}
+				width: 50%;
+				padding: 1rem;
+				gap: 1rem;
+				max-height: 70vh; // Ajustez cette valeur selon vos besoins
+            	overflow-y: auto;
+				& .picture {
+					width: 100%;
+					${'' /* box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight}; */}
+					box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.30)
+				}
+				& .mobilePicture {
+					display:flex;
+					align-items: center;
+					justify-content: center;
+					width: 30%;
+					height: fit-content;
+					box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.30)
+				}
+			} 
+			& .infos {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				width: 50%;
+			}
 	}
 `
 
-export default function ModaleContent({ closeModal }) {
+export default function ModaleContent({ closeModal, cover, pictures, mobilePictures, title, skills, demo, repo }) {
 	const { darkMode } = useContext(ThemeContext)
+
+	console.log(pictures);
 
 	return (
 		<>
@@ -62,7 +100,38 @@ export default function ModaleContent({ closeModal }) {
 				</div>
 
 				<div className="content">
-					<h1>CONTENU A VENIR ;)</h1>
+
+					<div className="pictures" pictures={pictures} >
+
+						{pictures && pictures.map((picture, index) =>
+						(
+							<img
+								key= { index }
+								className='picture'
+								src={picture}
+								alt="" />
+						))}
+
+						{mobilePictures && mobilePictures.map((mobilePicture, index) =>
+						(
+							<img
+								key= { index }
+								className='mobilePicture'
+								src={mobilePicture}
+								alt="" />
+						))}
+
+						
+
+
+					</div>
+
+					<div className="infos">
+
+						<h1>CONTENU A VENIR ;)</h1>
+
+					</div>
+
 				</div>
 			</StyledModal>
 		</>
