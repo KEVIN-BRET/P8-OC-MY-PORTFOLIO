@@ -47,6 +47,9 @@ const StyledProjectCard = styled.div`
 				visibility: visible;
 			}
 		}
+		&.title {
+			margin-bottom: 1.5rem
+		}
 	}
 	& .thumbnail {
 		height: 200px;
@@ -117,20 +120,27 @@ const StyledSkill = styled.div`
 
 const StyledNav = styled.div`
 	display: flex;
+	align-items: center;
+	position: absolute;
+	height: 2rem;
+	border-radius: 0px 0px 10px 10px;
+	bottom: 0;	
 	justify-content: space-around;
 	margin-top: 0.5rem;
 	width: 100%;
-	gap: 1rem;
+	${'' /* gap: 1rem; */}
 	font-size: 0.9rem;
 	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
+	background: ${colors.primary};
 	transition: 0.3s ease;
 	&>a {
 		${'' /* text-decoration: underline; */}
 		font-style: italic;
+		font-weight: bold;
 		transition: 0.3s ease;
+		color: ${colors.bodyDark};
 		&:hover {
-			text-decoration: none;
-			color: ${colors.primary};
+			text-decoration: underline;
 			transition: 0.3s ease;
 			& .arrow {
 				visibility: visible;
@@ -140,7 +150,7 @@ const StyledNav = styled.div`
 `
 
 
-export default function ProjectCard({ id, title, cover, pictures, mobilePictures, skills, name, repo, demo }) {
+export default function ProjectCard({ id, title, cover, pictures, skills, origin, scenario, constraints, links, name, repo, demo }) {
 
 	const { darkMode } = useContext(ThemeContext);
 
@@ -154,8 +164,11 @@ export default function ProjectCard({ id, title, cover, pictures, mobilePictures
 					title={title}
 					cover={cover}
 					pictures={pictures}
-					mobilePictures={mobilePictures}
 					skills={skills}
+					origin={origin}
+					scenario={scenario}
+					constraints={constraints}
+					links={links}
 					name={name}
 					demo={demo}
 					repo={repo}
@@ -178,12 +191,13 @@ export default function ProjectCard({ id, title, cover, pictures, mobilePictures
 				))}
 			</StyledSkillsContainer>
 
-			<h3 onClick={() => { console.log(showModal); setShowModal(true) }}>{title} <span className="arrow">➚</span></h3>
+			<h3 className='title' onClick={() => { console.log(showModal); setShowModal(true) }}>{title} <span className="arrow">➚</span></h3>
 
 			<StyledNav $isDarkMode={darkMode} >
 				<a href={demo} target="_blank" rel="noopener noreferrer">Live Demo<span className="arrow"> ➚</span></a>
 				<a href={repo} target="_blank" rel="noopener noreferrer">Repo GitHub<span className="arrow"> ➚</span></a>
 			</StyledNav>
+
 		</StyledProjectCard>
 	);
 };

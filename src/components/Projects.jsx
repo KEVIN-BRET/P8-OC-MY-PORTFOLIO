@@ -40,16 +40,31 @@ export default function Projects() {
 		<StyledProjects id='projects' $isDarkMode={darkMode}>
 			<h1>Mes projets</h1>
 			<StyledProjectGallery>
-				{projectsData.map(({ id,name, cover, pictures, mobilePictures, title, skills, demo, repo }) =>
+				{projectsData.map(({ 
+					id,
+					name, 
+					cover, 
+					pictures, 
+					title, 
+					skills, 
+					origin, 
+					scenario,
+					constraints,
+					links,
+					demo, 
+					repo }) =>
 				(
 					<ProjectCard key={id}
 						id={id}
 						name={name}
 						cover={cover}
 						pictures={pictures}
-						mobilePictures={mobilePictures}
 						title={title}
 						skills={skills}
+						origin={origin}
+						scenario={scenario}
+						constraints={constraints}
+						links={links}
 						demo={demo}
 						repo={repo}
 					/>

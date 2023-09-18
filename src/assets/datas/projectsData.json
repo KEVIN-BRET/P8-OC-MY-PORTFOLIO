@@ -1,67 +1,241 @@
 [
 	{
-		"id": "1",
-		"name": "Booki",
+		"id": "3",
+		"name": "Kasa",
+		"title": "Application web de location immobilière avec React",
 		"skills": [
-			"Html",
-			"Css"
+			"JavaScript,",
+			"React"
 		],
-		"title": "Créez la page d'accueil d'une agence de voyage",
-		"cover": "https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/booki/booki-muckup.webp",
+		"origin": "Projet Réalisé dans le cadre de ma formation Développeur Web chez OpenClassrooms",
+		"scenario": "Kasa vous recrute en tant que développeur front-end en freelance pour développer sa nouvelle plateforme web. Kasa est dans le métier de la location d’appartements entre particuliers depuis près de 10 ans maintenant. Avec plus de 500 annonces postées chaque jour, Kasa fait partie des leaders de la location d’appartements entre particuliers en France.",
+		"constraints": [
+			{
+				"name": "React",
+				"list": [
+					"Découpage en composants modulaires et réutilisables",
+					"Un composant par fichier",
+					"Structure logique des différents fichiers",
+					"Utilisation des props entre les composants",
+					"Utilisation du state dans les composants quand c'est nécessaire",
+					"Gestion des événements",
+					"Listes : Utiliser les map autant que possible"
+				]
+			},
+			{
+				"name": "React Router",
+				"list": [
+					"Les paramètres des routes sont gérés par React Router dans l'URL pour récupérer les informations de chaque logement.",
+					"Il existe une page par route.",
+					"La page 404 est renvoyée pour chaque route inexistante, ou si une valeur présente dans l’URL ne fait pas partie des données renseignées.",
+					"La logique du routeur est réunie dans un seul fichier."
+				]
+			},
+			{
+				"name": "Général",
+				"list": [
+					"Le code ne doit pas produire d'erreur ou de warning dans la console."
+				]
+			}
+		],
+		"links": [
+			{
+				"name": "Kasa coding guidelines.pdf",
+				"url": "https://drive.google.com/file/d/10EyQ0lYUNOIN9aWb_Xg3imUqzkTeHGiU/view?usp=sharing"
+			},
+			{
+				"name": "Maquette Figma Kasa",
+				"url": "https://drive.google.com/file/d/1xjCWjDWlpCX8mMYl0BITIKgkBINAz72d/view?usp=sharing"
+			}
+		],
+		"cover": "https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/kasa-mockup.webp",
 		"pictures": [
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-2.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-3.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-4.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-5.jpg"
+			{
+				"desktopPictures": [
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/kasa-mockup.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/Kasa-screenshot-1.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/Kasa-screenshot-2.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/Kasa-screenshot-3.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/Kasa-screenshot-4.webp"
+				]
+			},
+			{
+				"tabletPictures": []
+			},
+			{
+				"mobilePictures": [
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/Kasa-screenshot-5.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/Kasa-screenshot-6.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/Kasa-screenshot-7.webp"
+				]
+			}
 		],
-		"description": "L’entreprise souhaite développer un site Internet qui permette aux usagers de trouver des hébergements et des activités dans la ville de leur choix. Vous êtes chargé d'intégrer l'interface du site avec du code HTML et CSS. Pour cela, vous travaillez en étroite collaboration avec Sarah, la CTO, et Loïc, l’UI designer. Sarah vous envoie un e-mail pour vous présenter l’avancée du projet.",
-		"demo": "https://kevin-bret.github.io/P2-OC-BOOKI/",
-		"repo": "https://github.com/KEVIN-BRET/P2-OC-BOOKI",
-		"more": "ouverture modale"
+		"demo": "https://kevin-bret.github.io/kasa/",
+		"repo": "https://github.com/KEVIN-BRET/P6-OC-KASA"
 	},
 	{
 		"id": "2",
 		"name": "Sophie Bluel",
+		"title": "Créez le portfolio d'une architecte avec JavaScript",
 		"skills": [
-			"JavaScript"
+			"HTML,",
+			"CSS,",
+			"JavaScript,",
+			"API"
 		],
-		"title": "Créez une page web dynamique avec JavaScript",
+		"origin": "Projet Réalisé dans le cadre de ma formation Développeur Web chez OpenClassrooms",
+		"scenario": "En simulation de travail en tant que de développeur front-end d'une entreprise de design, je développe ici la vitrine du site internet de Sophie Bluel, architecte.",
+		"constraints": [
+			{
+				"name": "HTML & CSS",
+				"list": [
+					"Créer la page de présentation des travaux de l'architecte à partir du HTML fourni",
+					"Créer la page de connexion de l'administrateur du site (code à créer de zéro)",
+					"Créer la modale permettant d'uploader de nouveaux médias (code à créer de zéro)."
+				]
+			},
+			{
+				"name": "JavaScript & API",
+				"list": [
+					"Faire appel aux API mises à ma dispostion pour :",
+					"Récupérer les catégories,",
+					"Récupérer les photos à afficher dans la galerie,",
+					"La connexion de l'administrateur du site,",
+					"La création et la suppression de projet photo."
+				]
+			}
+		],
+		"links": [
+			{
+				"name": "Maquette Figma Sophie Bluel",
+				"url": "https://drive.google.com/file/d/1JKpcBdFdP9TIzQWgSRLoaiQ44fvMgI01/view?usp=sharing"
+			}
+		],
 		"cover": "https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/bluel/Sophie-bluel-Mockup.webp",
 		"pictures": [
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-2.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-3.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-4.jpg",
-			"https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-5.jpg"
+			{
+				"desktopPictures": [
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/bluel/Sophie-bluel-Mockup.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/bluel/Sophie-Bluel-desktop-1.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/bluel/Sophie-Bluel-desktop-2.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/bluel/Sophie-Bluel-desktop-3.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/bluel/Sophie-Bluel-desktop-4.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/bluel/Sophie-Bluel-desktop-5.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/bluel/Sophie-Bluel-desktop-6.webp"
+				]
+			},
+			{
+				"tabletPictures": []
+			},
+			{
+				"mobilePictures": []
+			}
 		],
-		"description": "L’entreprise souhaite développer un site Internet qui permette aux usagers de trouver des hébergements et des activités dans la ville de leur choix. Vous êtes chargé d'intégrer l'interface du site avec du code HTML et CSS. Pour cela, vous travaillez en étroite collaboration avec Sarah, la CTO, et Loïc, l’UI designer. Sarah vous envoie un e-mail pour vous présenter l’avancée du projet.",
 		"demo": "",
 		"repo": "https://github.com/KEVIN-BRET/P3-OC-SOPHIE-BLUEL"
 	},
 	{
-		"id": "3",
-		"name": "Kasa",
+		"id": "1",
+		"name": "Booki",
+		"title": "Créez la page d'accueil d'une agence de voyage",
 		"skills": [
-			"JavaScript",
-			"React"
+			"Html,",
+			"Css"
 		],
-		"title": "Application web de location immobilière avec React",
-		"cover": "https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/kasa-mockup.webp",
+		"origin": "Projet Réalisé dans le cadre de ma formation Développeur Web chez OpenClassrooms",
+		"scenario": "L’entreprise BOOKI souhaite développer un site Internet qui permette aux usagers de trouver des hébergements et des activités dans la ville de leur choix. Vous êtes chargé d'intégrer l'interface du site avec du code HTML et CSS.",
+		"constraints": [
+			{
+				"name": "Général",
+				"list": [
+					"Créer le contenu et la structure de la page d'accueil en HTML et CSS en respectant la maquette.",
+					"Rendre la page responsive pour desktop, tablette et mobile."
+				]
+			}
+		],
+		"links": [
+			{
+				"name": "Note de synthèse pour intégration du site Booki",
+				"url": "https://drive.google.com/file/d/1HZ_6JUhYh1kwtu7pCado-rHr8mNy9NN0/view?usp=sharing"
+			},
+			{
+				"name": "Maquette Figma Booki",
+				"url": "https://drive.google.com/file/d/10NUsLQ9ykxp2ZKVZyJgZ4ZwwK3bz_RFy/view?usp=sharing"
+			}
+		],
+		"cover": "https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/booki/booki-mockup.webp",
 		"pictures": [
-			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/kasa-mockup.webp",
-			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/Kasa-screenshot-1.webp",
-			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/Kasa-screenshot-2.webp",
-			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/Kasa-screenshot-3.webp",
-			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/Kasa-screenshot-4.webp"
+			{
+				"desktopPictures": [
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/booki/booki-mockup.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/booki/booki-desktop.webp"
+				]
+			},
+			{
+				"tabletPictures": [
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/booki/booki-tablet.webp"
+				]
+			},
+			{
+				"mobilePictures": [
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/booki/booki-mobile.webp"
+				]
+			}
 		],
-		"mobilePictures": [
-			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/Kasa-screenshot-5.webp",
-			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/Kasa-screenshot-6.webp",
-			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/kasa/Kasa-screenshot-7.webp"
+		"demo": "https://kevin-bret.github.io/P2-OC-BOOKI/",
+		"repo": "https://github.com/KEVIN-BRET/P2-OC-BOOKI"
+	},
+	{
+		"id": "4",
+		"name": "Nina Carducci",
+		"title": "Débuggez et optimisez un site de photographe",
+		"skills": [
+			"SEO,",
+			"Debug,",
+			"Optimisation"
 		],
-		"description": "L’entreprise souhaite développer un site Internet qui permette aux usagers de trouver des hébergements et des activités dans la ville de leur choix. Vous êtes chargé d'intégrer l'interface du site avec du code HTML et CSS. Pour cela, vous travaillez en étroite collaboration avec Sarah, la CTO, et Loïc, l’UI designer. Sarah vous envoie un e-mail pour vous présenter l’avancée du projet.",
-		"demo": "https://kevin-bret.github.io/kasa/",
-		"repo": "https://github.com/KEVIN-BRET/P6-OC-KASA"
+		"origin": "Projet Réalisé dans le cadre de ma formation Développeur Web chez OpenClassrooms",
+		"scenario": "Vous êtes développeur freelance, et vous décidez de proposer vos services d’optimisation SEO à pour le site de Nina Carducci, une photographe. Vous allez donc optimiser son site selon ses demandes indiquées dans son mail, et lui fournir un rapport détaillé de votre intervention.",
+		"constraints": [
+			{
+				"name": "",
+				"list": [
+					"Faire une optimisation globale du site, tant sur les performances que sur le SEO,",
+					"Mettre en place le référencement local en utilisant Schema.org,",
+					"Ajouter les metas pour les réseaux sociaux,",
+					"Faire les modifications liées à l’accessibilité du site,",
+					"Produire un rapport d’optimisation présentant toutes vos actions et leur impact,",
+					"Résoudre les bugs de fonctionnement de la galerie."
+				]
+			}
+		],
+		"links": [
+			{
+				"name": "Lien du site avant optimisation",
+				"url": "https://nina-carducci.github.io/"
+			},
+			{
+				"name": "Rapport d'intervention (PDF)",
+				"url": "https://drive.google.com/file/d/1c4YLH0Bs4pwG4NDp66jus27frejOSw_q/view?usp=drive_link"
+			}
+		],
+		"cover": "https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/nina/Mockup-nina.webp",
+		"pictures": [
+			{
+				"desktopPictures": [
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/nina/Mockup-nina.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/nina/Nina-1.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/nina/Nina-2.webp"
+				]
+			},
+			{
+				"tabletPictures": []
+			},
+			{
+				"mobilePictures": []
+			}
+		],
+		"demo": "https://kevin-bret.github.io/P5-OC-NINA-CARDUCCI/",
+		"repo": "https://github.com/KEVIN-BRET/P5-OC-NINA-CARDUCCI"
 	}
 ]
