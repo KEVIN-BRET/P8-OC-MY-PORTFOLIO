@@ -144,8 +144,8 @@ const StyledBacToTop = styled.div`
 export default function Header() {
 	const { darkMode } = useContext(ThemeContext);
 	// est-ce que la page est scrollée ?
-	const [isScrolled, setIsScrolled] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [isScrolled, setIsScrolled] = useState(false);
 
 	useEffect(() => {
 		const handleScroll = () => {
