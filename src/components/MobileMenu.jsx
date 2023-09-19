@@ -67,8 +67,8 @@ const StyledLogo = styled.div`
 const StyledNavMobile = styled.div`
 
 	opacity: ${({ $isMenuOpen }) => ($isMenuOpen ? '1' : '0')};
-	display: ${({ $isMenuOpen }) => ($isMenuOpen ? 'flex' : 'none')};	
-
+	visibility: ${({ $isMenuOpen }) => ($isMenuOpen ? 'visible' : 'hidden')};
+	pointer-events: ${({ $isMenuOpen }) => ($isMenuOpen ? 'auto' : 'none')};
 	z-index: 3000;
 	position: fixed;
 	width: 100%;
@@ -76,8 +76,11 @@ const StyledNavMobile = styled.div`
 	background-color: rgba(0, 0, 0, 0.8);
 	transition: 0.5s ease;
 	& .menu {
+		transform: ${({ $isMenuOpen }) => ($isMenuOpen ? 'translateX(0)' : 'translateX(100%)')};
+		transition: transform 0.5s ease; 
+		position: fixed;
+		right: 0;
 		padding: 0.5rem 1.5rem;
-		${'' /* width: 350px; */}
 		height: 100%;
 		background-color: ${({ $isDarkMode }) => $isDarkMode ? colors.backgroundDark : colors.backgroundLight};
 		display: flex;

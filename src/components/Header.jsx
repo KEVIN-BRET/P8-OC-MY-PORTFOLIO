@@ -15,12 +15,12 @@ import burgerMenu from '../assets/images/burger-menu.png';
 
 import MobileMenu from './MobileMenu';
 
-// imports pour utiliser les icônes fontawesome :
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import fontawesome from '@fortawesome/fontawesome'
-import { faCheckSquare, faCoffee, faBars } from '@fortawesome/free-solid-svg-icons'
-// import de chaque icône utilisée :
-fontawesome.library.add(faCheckSquare, faCoffee, faBars);
+// // imports pour utiliser les icônes fontawesome :
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import fontawesome from '@fortawesome/fontawesome'
+// import { faCheckSquare, faCoffee, faBars } from '@fortawesome/free-solid-svg-icons'
+// // import de chaque icône utilisée :
+// fontawesome.library.add(faCheckSquare, faCoffee, faBars);
 
 
 const StyledLogo = styled.div`
@@ -116,6 +116,7 @@ const StyledBurgerMenu = styled.img`
 	height: 50px;
 	width: 50px;
 	cursor: pointer;
+	${'' /* z-index: 2000; */}
 	@media screen and (min-width: 1000px) {
 		display: none;
 	}	
@@ -177,15 +178,11 @@ export default function Header() {
 
 				<ToggleThemeButton />
 
-
-
-				<p>start
-
+				{/* <p>start-
 					<FontAwesomeIcon icon="check-square" />
 					<FontAwesomeIcon icon="coffee" />
 					<FontAwesomeIcon icon="bars" />
-
-					end</p>
+					-end</p> */}
 
 				<StyledBurgerMenu
 					src={burgerMenu}
