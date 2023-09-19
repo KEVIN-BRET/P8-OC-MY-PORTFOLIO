@@ -1,7 +1,10 @@
+import { useContext } from 'react';
 import React from 'react';
 import styled from 'styled-components';
 
 import colors from '../style/colors';
+
+import { ThemeContext } from '../utils/context/ThemeProvider';
 
 
 const StyledNav = styled.div`
@@ -33,7 +36,10 @@ const StyledNav = styled.div`
 `
 
 
-export default function Navigation({ darkMode, isMobile = false  }) {
+export default function Navigation({ isMobile = false  }) {
+
+const { darkMode } = useContext(ThemeContext);
+
 	return (
 		<StyledNav $isDarkMode={darkMode} $isMobile={isMobile} >
 			<ul className='header__nav'>

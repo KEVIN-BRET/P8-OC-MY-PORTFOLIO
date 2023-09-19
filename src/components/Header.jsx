@@ -15,6 +15,12 @@ import burgerMenu from '../assets/images/burger-menu.png';
 
 import MobileMenu from './MobileMenu';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import fontawesome from '@fortawesome/fontawesome'
+import { faCheckSquare, faCoffee, faBars } from '@fortawesome/free-solid-svg-icons'
+
+fontawesome.library.add(faCheckSquare, faCoffee, faBars);
+
 
 const StyledLogo = styled.div`
 	display: flex;
@@ -170,18 +176,28 @@ export default function Header() {
 
 				<ToggleThemeButton />
 
+
+
+				<p>start
+
+					<FontAwesomeIcon icon="check-square" />
+					<FontAwesomeIcon icon="coffee" />
+					<FontAwesomeIcon icon="bars" />
+
+					end</p>
+
 				<StyledBurgerMenu
 					src={burgerMenu}
 					alt="burgerMenu"
 					onClick={() => {
 						setIsMenuOpen(true)
 						// console.log("Menu opened ...");
-					}} 
-					// onClose={() => setIsMenuOpen(false)}
+					}}
+				// onClose={() => setIsMenuOpen(false)}
 				/>
 
 				<div className='nav-cv'>
-					<Navigation $isDarkMode={darkMode} isMobile={false} />
+					<Navigation isMobile={false} />
 					<DownloadCVButton $isDarkMode={darkMode} />
 				</div>
 
@@ -194,11 +210,9 @@ export default function Header() {
 			/>
 
 			<StyledBacToTop $isDarkMode={darkMode} className={isScrolled ? 'page--scrolled' : ''}>
-
 				<a href="#accueil">
 					<RoundButton className="symbol" symbol="↑" />
 				</a>
-
 			</StyledBacToTop>
 		</div>
 	);

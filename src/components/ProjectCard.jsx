@@ -146,6 +146,11 @@ const StyledNav = styled.div`
 				visibility: visible;
 			}
 		}
+	}
+	& .separation {
+		height: 70%;
+		width: 1px;
+		background: ${colors.bodyDark};
 	}	
 `
 
@@ -195,6 +200,7 @@ export default function ProjectCard({ id, title, cover, pictures, skills, origin
 
 			<StyledNav $isDarkMode={darkMode} >
 				<a href={demo} target="_blank" rel="noopener noreferrer">Live Demo<span className="arrow"> ➚</span></a>
+				<div className="separation"></div>
 				<a href={repo} target="_blank" rel="noopener noreferrer">Repo GitHub<span className="arrow"> ➚</span></a>
 			</StyledNav>
 
