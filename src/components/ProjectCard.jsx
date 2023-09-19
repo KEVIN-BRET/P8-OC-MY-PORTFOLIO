@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useContext } from 'react';
 import { ThemeContext } from '../utils/context/ThemeProvider';
 
-import ModaleContent from './ModaleContent';
+import ModaleContent from './ProjectModaleContent';
 import { createPortal } from 'react-dom';
 
 import colors from '../style/colors';

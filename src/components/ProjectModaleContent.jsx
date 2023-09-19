@@ -243,7 +243,7 @@ export default function ModaleContent({ closeModal, cover, pictures, mobilePictu
 						<h3>Liens annexes :</h3>
 						<ul>
 							{links.map((linkObj, index) => (
-								<a href={linkObj.url} target="_blank" rel="noopener noreferrer"> <li className="link" key={index}>{linkObj.name}</li></a>
+								<a href={linkObj.url} target="_blank" rel="noopener noreferrer" key={index} > <li className="link" key={index}>{linkObj.name}</li></a>
 							))}
 						</ul>
 

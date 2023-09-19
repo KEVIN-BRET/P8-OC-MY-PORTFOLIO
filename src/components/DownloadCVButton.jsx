@@ -23,11 +23,9 @@ const StyledButton = styled.div`
 
 		&:hover {
 		color: ${colors.white};
-		background: ${colors.primary};
-		
 		background: ${colors.gradienPrimaryColor};
-		}
 		transform: translateY(-3px);
+		}
 `;
 
 export default function DownloadCVButton() {

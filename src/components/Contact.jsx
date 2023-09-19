@@ -155,8 +155,21 @@ const StyledForm = styled.div`
 				width: 100%;
 				height: 235px;
 				resize: none;
-				
-		}
+			}
+			& .submit-container input {
+				font-weight: 500;
+				font-style: italic;
+				cursor: pointer;
+				border: none;
+				background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
+				box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
+				transition: 0.3s ease;
+				&:hover {
+					color: ${colors.white};
+					background: ${colors.gradienPrimaryColor};
+					transform: translateY(-3px);
+				}
+			}
 		
 		
 		& .name-and-phone {
