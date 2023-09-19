@@ -29,6 +29,13 @@ import userLogoDark from '../assets/images/logos/user-dark.png';
 import userLogoLight from '../assets/images/logos/user-light.png';
 import bookLogoLight from '../assets/images/logos/book-light.png';
 import bookLogoDark from '../assets/images/logos/book-dark.png';
+import softSkillLogoLight1 from '../assets/images/logos/softskill-1-light.png';
+import softSkillLogoDark1 from '../assets/images/logos/softskill-1-dark.png';
+import softSkillLogoLight2 from '../assets/images/logos/softskill-2-light.png';
+import softSkillLogoDark2 from '../assets/images/logos/softskill-2-dark.png';
+
+
+
 import RoundButton from './RoundButton';
 
 const StyledSkills = styled.div`
@@ -169,7 +176,7 @@ function Skills() {
 			<h1>Mes compétences</h1>
 
 			<StyledCardsContainer>
-			
+
 				<StyledCard className={`card ${activeCards.frontend && 'active'}`} $isDarkMode={darkMode}>
 					<StyledLogosContainer className='logos'>
 						<img src={darkMode ? htmlLogoDark : htmlLogoLight} alt="HTML" />
@@ -211,9 +218,9 @@ function Skills() {
 
 				<StyledCard className={`card ${activeCards.backendJs && 'active'}`} $isDarkMode={darkMode}>
 					<StyledLogosContainer className='logos'>
-						<img src={darkMode ? nodeLogoDark : nodeLogoLight} alt="JavaScript" />
-						<img src={darkMode ? expressLogoDark : expressLogoLight} alt="React" />
-						<img src={darkMode ? mongoLogoDark : mongoLogoLight} alt="React" />
+						<img src={darkMode ? nodeLogoDark : nodeLogoLight} alt="node" />
+						<img src={darkMode ? expressLogoDark : expressLogoLight} alt="express" />
+						<img src={darkMode ? mongoLogoDark : mongoLogoLight} alt="mongo" />
 					</StyledLogosContainer>
 					<h3>Back-end JavaScript</h3>
 					<div className="moreContentBtn" onClick={() => handleToggle('backendJs')}>
@@ -233,8 +240,8 @@ function Skills() {
 
 				<StyledCard className={`card ${activeCards.seoDebug && 'active'}`} $isDarkMode={darkMode}>
 					<StyledLogosContainer className='logos'>
-						<img src={darkMode ? seoLogoDark : seoLogoLight} alt="JavaScript" />
-						<img src={darkMode ? debugLogoDark : debugLogoLight} alt="React" />
+						<img src={darkMode ? seoLogoDark : seoLogoLight} alt="seo" />
+						<img src={darkMode ? debugLogoDark : debugLogoLight} alt="debug" />
 					</StyledLogosContainer>
 					<h3>SEO Optimisation Debug</h3>
 					<div className="moreContentBtn" onClick={() => handleToggle('seoDebug')}>
@@ -252,8 +259,8 @@ function Skills() {
 
 				<StyledCard className={`card ${activeCards.learning && 'active'}`} $isDarkMode={darkMode}>
 					<StyledLogosContainer className='logos'>
-						<img src={darkMode ? userLogoDark : userLogoLight} alt="JavaScript" />
-						<img src={darkMode ? bookLogoDark : bookLogoLight} alt="React" />
+						<img src={darkMode ? userLogoDark : userLogoLight} alt="user" />
+						<img src={darkMode ? bookLogoDark : bookLogoLight} alt="book" />
 					</StyledLogosContainer>
 					<h3>Compétences à développer</h3>
 					<div className="moreContentBtn" onClick={() => handleToggle('learning')}>
@@ -272,8 +279,8 @@ function Skills() {
 
 				<StyledCard className={`card ${activeCards.softSkils && 'active'}`} $isDarkMode={darkMode}>
 					<StyledLogosContainer className='logos'>
-						<img src={darkMode ? userLogoDark : userLogoLight} alt="JavaScript" />
-						<img src={darkMode ? bookLogoDark : bookLogoLight} alt="React" />
+						<img src={darkMode ? softSkillLogoDark1 : softSkillLogoLight1} alt="softSkill" />
+						<img src={darkMode ? softSkillLogoDark2 : softSkillLogoLight2} alt="softSkill" />
 					</StyledLogosContainer>
 					<h3>Mes Soft Skills ..</h3>
 					<div className="moreContentBtn" onClick={() => handleToggle('softSkils')}>
