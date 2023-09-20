@@ -3,16 +3,11 @@ import colors from './colors'
 
 const GlobalStyle = createGlobalStyle`
 
-${'' /* import des polices */}
-${'' /* @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap'); */}
-	
 	${'' /* on masque les barres de défilement */}
 	::-webkit-scrollbar {
 		width: 0;       /* Pour les barres de défilement verticales */
 		height: 0;      /* Pour les barres de défilement horizontales */
 	}
-
 
 	html {
 		scroll-behavior: smooth;
@@ -20,11 +15,10 @@ ${'' /* @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&d
 	
 	input, textarea:focus {
 		outline: none;
-		}
+	}
 
-   	*,
-	::before,
-	::after {
+   	*,::before,::after 
+	{
 		${'' /* border: 1px solid pink; */}
 
 		margin: 0;
@@ -37,8 +31,6 @@ ${'' /* @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&d
 		outline: none;
 		}
 	}
-
-	
 
     body {
         background-color: ${({ isDarkMode }) =>

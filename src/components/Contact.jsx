@@ -143,7 +143,7 @@ const StyledForm = styled.div`
 				${'' /* border: 2px solid #191b1e; */}
 				padding: 15px;
 				font-size: 1rem;
-				background-color: ${({ $isDarkMode }) => $isDarkMode ? colors.inputBackgroungDark : "white"};
+				background-color: ${({ $isDarkMode }) => $isDarkMode ? colors.inputBackgroungDark : colors.white};
 				color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
 				border: ${({ $isDarkMode }) => $isDarkMode ? "2px solid #191b1e" : "2px solid #DADADA"};
 				box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.innerShadowDark : ""};
@@ -312,32 +312,32 @@ export default function Contact() {
 						<div className="name-and-phone">
 							<div className="name-container">
 								<label htmlFor="name">Votre nom</label>
-								<input type="text" id="name" {...register('name')} />
+								<input type="text" id="name" name='name' autoComplete='on' {...register('name')} />
 								<span></span>
 							</div>
 
 							<div className="phone-container">
 								<label htmlFor="phone">N° de téléphone</label>
-								<input type="text" id="phone" {...register('phone')} />
+								<input type="text" id="phone" name='phone' autoComplete='on' {...register('phone')} />
 								<span></span>
 							</div>
 						</div>
 
 						<div className="email-container">
-							<label htmlFor="mail">Email</label>
-							<input type="email" id="email" {...register('email')} />
+							<label htmlFor="email">Email</label>
+							<input type="email" id="email" name='email' autoComplete='on' {...register('email')} />
 							<span></span>
 						</div>
 
 						<div className="message-container">
 							<label htmlFor="message">Votre message</label>
-							<textarea type="text" id="message" rows="" cols="" {...register('message')}></textarea>
+							<textarea type="text" id="message" name='message' rows="" cols="" {...register('message')}></textarea>
 							<span></span>
 						</div>
 
 						<div className="submit-container">
 							{/* <label htmlFor="submit">Envoyer</label> */}
-							<input type="submit" id="submit" value="Envoyer" />
+							<input type="submit" id="submit" name='submit' value="Envoyer" />
 							<span></span>
 						</div>
 					</form>

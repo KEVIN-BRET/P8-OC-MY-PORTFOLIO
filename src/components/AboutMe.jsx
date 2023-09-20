@@ -92,7 +92,7 @@ export default function AboutMe() {
 						<br />
 						<span className='title-cation'>Développeur Web Junior.</span>
 					</h1>
-					<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae eum autem omnis ex, aliquam labore unde quo illum voluptatibus quibusdam facere neque saepe vitae odio iusto debitis vel magni nisi.</p>
+					<p>Passionné d'informatique depuis toujours, particulièrement par le développent Front-end</p>
 				</div>
 				<div className='badges'>
 
