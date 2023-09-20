@@ -1,0 +1,117 @@
+[
+	{
+		"name": "frontend",
+		"title": "Intégration Front-end",
+		"logosLight": [
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/html5-light.png",
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/html5-light.png",
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/sass-light.png"
+		],
+		"logosDark": [
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/html5-dark.png",
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/html5-dark.png",
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/sass-dark.png"
+		],
+		"content": [
+			"Intégrer du contenu conformément à une maquette,",
+			"Implémenter une interface responsive,",
+			"Utilisation des fonctionnalités Sass."
+		]
+	},
+	{
+		"name": "jsReact",
+		"title": "JavaScript React Js",
+		"logosLight": [
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/javascript-light.png",
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/react-light.png"
+		],
+		"logosDark": [
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/javascript-dark.png",
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/react-dark.png"
+		],
+		"content": [
+			"Manipuler les éléments du DOM,",
+			"Récupérer des données via des formulaires,",
+			"Gérer les évènements utilisateur,",
+			"Interagir avec des API externe,",
+			"Manipuler des données au format JSON"
+		]
+	},
+	{
+		"name": "backendJs",
+		"title": "Back-end JavaScript",
+		"logosLight": [
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/node-light.png",
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/express-light.png",
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/mongodb-light.png"
+		],
+		"logosDark": [
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/node-dark.png",
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/express-dark.png",
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/mongodb-dark.png"
+		],
+		"content": [
+			"Manipuler les éléments du DOM,",
+			"Récupérer des données via des formulaires,",
+			"Gérer les évènements utilisateur,",
+			"Interagir avec des API externe,",
+			"Manipuler des données au format JSON"
+		]
+	},
+	{
+		"name": "seoDebug",
+		"title": "SEO Optimisation Debug",
+		"logosLight": [
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/seo-light.png",
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/debug-light.png"
+		],
+		"logosDark": [
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/seo-dark.png",
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/debug-dark.png"
+		],
+		"content": [
+			"Optimiser les performances d’un site web,",
+			"Débugger un site web grâce aux Chrome DevTools,",
+			"Optimisation du référencement naturel d'un site web,",
+			"Rédiger un cahier de recette pour tester un site"
+		]
+	},
+	{
+		"name": "learning",
+		"title": "Compétences à développer",
+		"logosLight": [
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/user-light.png",
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/book-light.png"
+		],
+		"logosDark": [
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/user-dark.png",
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/book-dark.png"
+		],
+		"content": [
+			"Les frameworks CSS Bootstrap & Tailwin,",
+			"Le framework Next.Js,",
+			"Les différents tests en JavaScript,",
+			"TypeScript,",
+			"Wordpress"
+		]
+	},
+	{
+		"name": "softSkils",
+		"title": "Mes Soft Skills ..",
+		"logosLight": [
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/softskill-1-light.png",
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/softskill-2-light.png"
+		],
+		"logosDark": [
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/softskill-1-dark.png",
+			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/softskill-2-dark.png"
+		],
+		"content": [
+			"Je suis sociable, j'aime communiquer,",
+			"Je suis curieux et j'aime apprendre en permanence,",
+			"J'ai une plutôt bonne capacité à m'adapter,",
+			"Je sais être autonome,",
+			"J'aime la musique, le cinéma, cuisiner ... et plein d'autres choses :)"
+		]
+	}
+]

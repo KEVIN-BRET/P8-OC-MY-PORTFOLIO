@@ -7,6 +7,7 @@ ${'' /* import des polices */}
 ${'' /* @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap'); */}
 	
+	${'' /* on masque les barres de défilement */}
 	::-webkit-scrollbar {
 		width: 0;       /* Pour les barres de défilement verticales */
 		height: 0;      /* Pour les barres de défilement horizontales */

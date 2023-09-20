@@ -31,7 +31,8 @@ const StyledLogo = styled.div`
 	margin-right: 2rem;
 	gap: 1rem;
 	transition: 0.3s ease;
-	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
+	${'' /* color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight}; */}
+	color: ${colors.primary};
 	& h3 {
 		@media screen and (max-width: 1100px) {
 				display: none;

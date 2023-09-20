@@ -1,42 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { ThemeContext } from '../utils/context/ThemeProvider';
 import styled from 'styled-components';
+
 import colors from '../style/colors';
-// import skillsDatas from '../assets/datas/skillsDatas.json';
-
-// logos :
-import htmlLogoLight from '../assets/images/logos/html5-light.png';
-import htmlLogoDark from '../assets/images/logos/html5-dark.png';
-import cssLogoLight from '../assets/images/logos/css3-light.png';
-import cssLogoDark from '../assets/images/logos/css3-dark.png';
-import sassLogoLight from '../assets/images/logos/sass-light.png';
-import sassLogoDark from '../assets/images/logos/sass-dark.png';
-import jsLogoLight from '../assets/images/logos/javascript-light.png';
-import jsLogoDark from '../assets/images/logos/javascript-dark.png';
-import reactLogoLight from '../assets/images/logos/react-light.png';
-import reactLogoDark from '../assets/images/logos/react-dark.png';
-import nodeLogoLight from '../assets/images/logos/node-light.png';
-import nodeLogoDark from '../assets/images/logos/node-dark.png';
-import expressLogoLight from '../assets/images/logos/express-light.png';
-import expressLogoDark from '../assets/images/logos/express-dark.png';
-import mongoLogoLight from '../assets/images/logos/mongodb-light.png';
-import mongoLogoDark from '../assets/images/logos/mongodb-dark.png';
-import seoLogoLight from '../assets/images/logos/seo-light.png';
-import seoLogoDark from '../assets/images/logos/seo-dark.png';
-import debugLogoLight from '../assets/images/logos/debug-light.png';
-import debugLogoDark from '../assets/images/logos/debug-dark.png';
-import userLogoDark from '../assets/images/logos/user-dark.png';
-import userLogoLight from '../assets/images/logos/user-light.png';
-import bookLogoLight from '../assets/images/logos/book-light.png';
-import bookLogoDark from '../assets/images/logos/book-dark.png';
-import softSkillLogoLight1 from '../assets/images/logos/softskill-1-light.png';
-import softSkillLogoDark1 from '../assets/images/logos/softskill-1-dark.png';
-import softSkillLogoLight2 from '../assets/images/logos/softskill-2-light.png';
-import softSkillLogoDark2 from '../assets/images/logos/softskill-2-dark.png';
-
-
 
 import RoundButton from './RoundButton';
+import skillsData from '../assets/datas/skillsData.json';
 
 const StyledSkills = styled.div`
 	margin: 2rem auto;
@@ -148,7 +117,7 @@ const StyledLogosContainer = styled.div`
 		}
 	`;
 
-function Skills() {
+export default function Skills() {
 	const { darkMode } = useContext(ThemeContext);
 
 	// Initialiser le state avec un objet
@@ -161,142 +130,50 @@ function Skills() {
 		softSkils: false
 	});
 
-	// Prend en argument l'identifiant de la carte
-	const handleToggle = (cardId) => {
+	// fonction qui permet de changer la valeur d'une propriété de l'objet
+	const handleToggle = (cardName) => {
 		setActiveCards(prevState => ({
 			...prevState,
-			[cardId]: !prevState[cardId]
+			[cardName]: !prevState[cardName]
 		}));
 	};
-
-
 
 	return (
 		<StyledSkills id='skills' $isDarkMode={darkMode}>
 			<h1>Mes compétences</h1>
 
 			<StyledCardsContainer>
+				{skillsData.map(({ index, name, title, logosLight, logosDark, content }) => (
+					<StyledCard
+						key={`${name}-${index}`}
+						name={name}
+						title={title}
+						$logosDark={logosDark}
+						$logosLight={logosLight}
+						content={content}
+						className={`card ${activeCards[name] && 'active'}`} // utilisez 'name' ici
+						$isDarkMode={darkMode}>
 
-				<StyledCard className={`card ${activeCards.frontend && 'active'}`} $isDarkMode={darkMode}>
-					<StyledLogosContainer className='logos'>
-						<img src={darkMode ? htmlLogoDark : htmlLogoLight} alt="HTML" />
-						<img src={darkMode ? cssLogoDark : cssLogoLight} alt="CSS" />
-						<img src={darkMode ? sassLogoDark : sassLogoLight} alt="CSS" />
-					</StyledLogosContainer>
-					<h3>Intégration Front-end</h3>
-					<div className="moreContentBtn" onClick={() => handleToggle('frontend')}>
-						<RoundButton symbol={activeCards.frontend ? "-" : "+"} />
-					</div>
-					<div className={`content ${activeCards.frontend && 'active'}`}>
-						<ul>
-							<li>Intégrer du contenu conformément à une maquette,</li>
-							<li>Implémenter une interface responsive,</li>
-							<li>Utilisation des fonctionnalités Sass</li>
-						</ul>
-					</div>
-				</StyledCard>
-
-				<StyledCard className={`card ${activeCards.jsReact && 'active'}`} $isDarkMode={darkMode}>
-					<StyledLogosContainer className='logos'>
-						<img src={darkMode ? jsLogoDark : jsLogoLight} alt="JavaScript" />
-						<img src={darkMode ? reactLogoDark : reactLogoLight} alt="React" />
-					</StyledLogosContainer>
-					<h3>JavaScript React Js</h3>
-					<div className="moreContentBtn" onClick={() => handleToggle('jsReact')}>
-						<RoundButton symbol={activeCards.jsReact ? "-" : "+"} />
-					</div>
-					<div className={`content ${activeCards.jsReact && 'active'}`}>
-						<ul>
-							<li>Manipuler les éléments du DOM,</li>
-							<li>Récupérer des données via des formulaires,</li>
-							<li>Gérer les évènements utilisateur,</li>
-							<li>Interagir avec des API externe,</li>
-							<li>Manipuler des données au format JSON</li>
-						</ul>
-					</div>
-				</StyledCard>
-
-				<StyledCard className={`card ${activeCards.backendJs && 'active'}`} $isDarkMode={darkMode}>
-					<StyledLogosContainer className='logos'>
-						<img src={darkMode ? nodeLogoDark : nodeLogoLight} alt="node" />
-						<img src={darkMode ? expressLogoDark : expressLogoLight} alt="express" />
-						<img src={darkMode ? mongoLogoDark : mongoLogoLight} alt="mongo" />
-					</StyledLogosContainer>
-					<h3>Back-end JavaScript</h3>
-					<div className="moreContentBtn" onClick={() => handleToggle('backendJs')}>
-						<RoundButton symbol={activeCards.backendJs ? "-" : "+"} />
-					</div>
-					<div className={`content ${activeCards.backendJs && 'active'}`}>
-						<ul>
-							<li>Node.Js / Express.Js / MongoDB :</li>
-							<li>Implémenter, un modèle logique de donner,</li>
-							<li>Mettre en œuvre des opérations CRUD,</li>
-							<li>Stocker des données de manière sécurisée,</li>
-							<li>Intégration d'un système d'authentification par JWT,</li>
-							<li>Utilisation des bonnes pratiques du Green Code</li>
-						</ul>
-					</div>
-				</StyledCard>
-
-				<StyledCard className={`card ${activeCards.seoDebug && 'active'}`} $isDarkMode={darkMode}>
-					<StyledLogosContainer className='logos'>
-						<img src={darkMode ? seoLogoDark : seoLogoLight} alt="seo" />
-						<img src={darkMode ? debugLogoDark : debugLogoLight} alt="debug" />
-					</StyledLogosContainer>
-					<h3>SEO Optimisation Debug</h3>
-					<div className="moreContentBtn" onClick={() => handleToggle('seoDebug')}>
-						<RoundButton symbol={activeCards.seoDebug ? "-" : "+"} />
-					</div>
-					<div className={`content ${activeCards.seoDebug && 'active'}`}>
-						<ul>
-							<li>Optimiser les performances d’un site web,</li>
-							<li>Débugger un site web grâce aux Chrome DevTools,</li>
-							<li>Optimisation du référencement naturel d'un site web,</li>
-							<li>Rédiger un cahier de recette pour tester un site</li>
-						</ul>
-					</div>
-				</StyledCard>
-
-				<StyledCard className={`card ${activeCards.learning && 'active'}`} $isDarkMode={darkMode}>
-					<StyledLogosContainer className='logos'>
-						<img src={darkMode ? userLogoDark : userLogoLight} alt="user" />
-						<img src={darkMode ? bookLogoDark : bookLogoLight} alt="book" />
-					</StyledLogosContainer>
-					<h3>Compétences à développer</h3>
-					<div className="moreContentBtn" onClick={() => handleToggle('learning')}>
-						<RoundButton symbol={activeCards.learning ? "-" : "+"} />
-					</div>
-					<div className={`content ${activeCards.learning && 'active'}`}>
-						<ul>
-							<li>Les frameworks CSS Bootstrap & Tailwin </li>
-							<li>Le framework Next.Js</li>
-							<li>Les différents tests en JavaScript</li>
-							<li>TypeScript</li>
-							<li>Wordpress</li>
-						</ul>
-					</div>
-				</StyledCard>
-
-				<StyledCard className={`card ${activeCards.softSkils && 'active'}`} $isDarkMode={darkMode}>
-					<StyledLogosContainer className='logos'>
-						<img src={darkMode ? softSkillLogoDark1 : softSkillLogoLight1} alt="softSkill" />
-						<img src={darkMode ? softSkillLogoDark2 : softSkillLogoLight2} alt="softSkill" />
-					</StyledLogosContainer>
-					<h3>Mes Soft Skills ..</h3>
-					<div className="moreContentBtn" onClick={() => handleToggle('softSkils')}>
-						<RoundButton symbol={activeCards.softSkils ? "-" : "+"} />
-					</div>
-					<div className={`content ${activeCards.softSkils && 'active'}`}>
-						<ul>
-							{/* <li>Je suis HPI ! (ahah non je rigole XD),</li> */}
-							<li>Je suis sociable, j'aime communiquer,</li>
-							<li>Je suis curieux et j'aime apprendre en permanence,</li>
-							<li>J'ai une plutôt bonne capacité à m'adapter,</li>
-							<li>Je sais être autonome,</li>
-							<li>J'aime la musique, le cinéma, cuisiner ... et plein d'autres choses :)</li>
-						</ul>
-					</div>
-				</StyledCard>
+						<StyledLogosContainer className='logos'>
+							{darkMode
+								?
+								logosDark.map((logo, index) => (<img key={index} src={logo} alt={`${name}-${index}`} />
+								))
+								:
+								logosLight.map((logo, index) => (<img key={index} src={logo} alt={`${name}-${index}`} />
+								))}
+						</StyledLogosContainer>
+						<h3>{title}</h3>
+						<div className="moreContentBtn" onClick={() => handleToggle(name)}> {/* utilisez 'name' ici */}
+							<RoundButton symbol={activeCards.frontend ? "-" : "+"} />
+						</div>
+						<div className={`content ${activeCards[name] && 'active'}`}> {/* utilisez 'name' ici */}
+							<ul>
+								{content.map((item, index) => (<li key={index}>{item}</li>))}
+							</ul>
+						</div>
+					</StyledCard>
+				))}
 
 			</StyledCardsContainer>
 
@@ -306,5 +183,3 @@ function Skills() {
 		</StyledSkills>
 	);
 }
-
-export default Skills;
