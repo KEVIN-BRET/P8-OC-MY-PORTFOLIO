@@ -48,6 +48,24 @@ const StyledCard = styled.div`
     background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
     box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
     transition: all 0.3s ease;
+	& .moreContentBtn {
+		position: absolute;
+		bottom: -1.5rem;
+		scale: 0.6;
+		z-index: 10;
+		visibility: hidden;
+		&>div {
+			color: ${colors.bodyDark};
+			background: ${colors.primary};
+			${'' /* box-shadow: ${colors.boxShadowLight}; */}
+			box-shadow: none;
+		}
+		${'' /* &.active {
+			visibility: visible;
+			height: auto;
+			background: ${colors.primary};
+		} */}
+	}
 	&.active {
 		height: auto;
 		background: ${colors.primary};
@@ -60,15 +78,12 @@ const StyledCard = styled.div`
 			${'' /* color: ${colors.white}; */}
 			transition: 0.3s ease;
 		}
+		& .moreContentBtn {
+			visibility: visible;
+		}
     }
 	& h2,h3 {
 		color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
-	}
-	& .moreContentBtn {
-		position: absolute;
-		bottom: -1.5rem;
-		scale: 0.6;
-		z-index: 10;
 	}
 	& .content {
 		visibility: hidden;
@@ -77,12 +92,8 @@ const StyledCard = styled.div`
         padding: 1rem;
         width: 100%;
         border-radius: 6px;
-
         background-color: ${colors.backgroundLight};
         color: ${colors.bodyLight};
-
-		${'' /* background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
-        color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight}; */}
         transform: scaleY(0);
         transform-origin: top;  // Ce paramètre indique que le contenu s'étend à partir du haut
         transition: transform 0.3s ease;
@@ -142,7 +153,7 @@ export default function Skills() {
 		<StyledSkills id='skills' $isDarkMode={darkMode}>
 			<h1>Mes compétences</h1>
 
-			<StyledCardsContainer>
+			<StyledCardsContainer >
 				{skillsData.map(({ index, name, title, logosLight, logosDark, content }) => (
 					<StyledCard
 						key={`${name}-${index}`}
@@ -152,7 +163,8 @@ export default function Skills() {
 						$logosLight={logosLight}
 						content={content}
 						className={`card ${activeCards[name] && 'active'}`} // utilisez 'name' ici
-						$isDarkMode={darkMode}>
+						$isDarkMode={darkMode}
+						onClick={() => handleToggle(name)}>
 
 						<StyledLogosContainer className='logos'>
 							{darkMode
@@ -165,7 +177,7 @@ export default function Skills() {
 						</StyledLogosContainer>
 						<h3>{title}</h3>
 						<div className="moreContentBtn" onClick={() => handleToggle(name)}> {/* utilisez 'name' ici */}
-							<RoundButton symbol={activeCards.frontend ? "-" : "+"} />
+							<RoundButton symbol={activeCards[name] ? "-" : "+"} />
 						</div>
 						<div className={`content ${activeCards[name] && 'active'}`}> {/* utilisez 'name' ici */}
 							<ul>
