@@ -237,5 +237,62 @@
 		],
 		"demo": "https://kevin-bret.github.io/P5-OC-NINA-CARDUCCI/",
 		"repo": "https://github.com/KEVIN-BRET/P5-OC-NINA-CARDUCCI"
+	},
+	{
+		"id": "5",
+		"name": "Mon vieux grimoire",
+		"title": "Développez le back-end d'un site de notation de livres",
+		"skills": [
+			"Node.Js,",
+			"Express.Js,",
+			"MongoDB"
+		],
+		"origin": "Projet Réalisé dans le cadre de ma formation Développeur Web chez OpenClassrooms",
+		"scenario": "Kévin vous contacte pour vous proposer de travailler avec lui en mutualisant vos compétences front / back sur un tout nouveau projet qui lui a été proposé. Il s’agit d’une petite chaîne de librairies qui souhaite ouvrir un site de référencement et de notation de livres.",
+		"constraints": [
+			{
+				"name": "",
+				"list": [
+					"Implémenter un modèle logique de données conformément à la réglementation",
+					"Stocker des données de manière sécurisée",
+					"Mettre en œuvre des opérations CRUD de manière sécurisée",
+					"Optimiser les images envoyées par les utilisateurs"
+				]
+			}
+		],
+		"links": [
+			{
+				"name": "Specifications fonctionnelles",
+				"url": "https://drive.google.com/file/d/1CMJLMzpYx49NzEa_yChJq4Fd-xx8kFJG/view?usp=sharing"
+			},
+			{
+				"name": "Specifications techniques",
+				"url": "https://drive.google.com/file/d/1wv5lENAMPJFmdK_kwsEl9bwqwv4nag3O/view?usp=sharing"
+			},
+			{
+				"name": "Maquette du site",
+				"url": "https://drive.google.com/file/d/15FScP_KcwFWfv3-RSJftVkEB_W0iG-Sk/view?usp=sharing"
+			}
+		],
+		"cover": "https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/grimoire/grimoire-mockup.webp",
+		"pictures": [
+			{
+				"desktopPictures": [
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/grimoire/grimoire-mockup.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/grimoire/grimoire-screenshot-4.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/grimoire/grimoire-screenshot-3.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/grimoire/grimoire-screenshot-2.webp",
+					"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/grimoire/grimoire-screenshot-5.webp"
+				]
+			},
+			{
+				"tabletPictures": []
+			},
+			{
+				"mobilePictures": []
+			}
+		],
+		"demo": "",
+		"repo": "https://github.com/KEVIN-BRET/P7-OC-BACKEND-LIVRES"
 	}
 ]

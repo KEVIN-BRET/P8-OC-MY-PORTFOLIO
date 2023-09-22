@@ -38,7 +38,7 @@ const StyledProjectCard = styled.div`
 				transition: 0.3s ease;
 			}
         }
-	& h2,h3 {
+	& h3 {
 		color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
 		transition: 0.3s ease;
 		&:hover {
@@ -48,7 +48,7 @@ const StyledProjectCard = styled.div`
 			}
 		}
 		&.title {
-			margin-bottom: 1.5rem
+			margin-bottom: 2rem
 		}
 	}
 	& .thumbnail {
@@ -134,14 +134,13 @@ const StyledNav = styled.div`
 	background: ${colors.primary};
 	transition: 0.3s ease;
 	&>a {
-		${'' /* text-decoration: underline; */}
 		font-style: italic;
-		font-weight: bold;
-		transition: 0.3s ease;
 		color: ${colors.bodyDark};
+		${'' /* transition: 0.3s ease; */}
 		&:hover {
+			font-weight: bold;
 			text-decoration: underline;
-			transition: 0.3s ease;
+			${'' /* transition: 0.3s ease; */}
 			& .arrow {
 				visibility: visible;
 			}
