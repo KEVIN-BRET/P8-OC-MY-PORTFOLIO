@@ -32,12 +32,14 @@ const StyledCardsContainer = styled.div`
 	align-items: flex-start;
 	justify-content: center;
 	gap: 2rem;
+	
 `;
 
 const StyledCard = styled.div`
+	${'' /* border: 1px solid pink; */}
 	position: relative;
     width: 350px;
-    height: 130px;
+    max-height: 130px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -53,11 +55,12 @@ const StyledCard = styled.div`
 		bottom: -1.5rem;
 		scale: 0.6;
 		z-index: 10;
-		visibility: hidden;
+		${'' /* visibility: hidden; */}
+		display: none;
+    	transition: all 0.3s ease;
 		&>div {
 			color: ${colors.bodyDark};
 			background: ${colors.primary};
-			${'' /* box-shadow: ${colors.boxShadowLight}; */}
 			box-shadow: none;
 		}
 		${'' /* &.active {
@@ -67,19 +70,22 @@ const StyledCard = styled.div`
 		} */}
 	}
 	&.active {
-		height: auto;
+		max-height: 1000px;
 		background: ${colors.primary};
+		transition: all 0.3s ease;
 	}
     &:hover {
         ${'' /* color: ${colors.bodyDark}; */}
-        background: ${colors.gradienPrimaryColor};
+        background: ${colors.primary};
         transform: translateY(-3px);
 		& h3 {
 			${'' /* color: ${colors.white}; */}
 			transition: 0.3s ease;
 		}
 		& .moreContentBtn {
-			visibility: visible;
+			transition: 0.3s ease;
+			${'' /* visibility: visible; */}
+			display: flex;
 		}
     }
 	& h2,h3 {
@@ -94,14 +100,15 @@ const StyledCard = styled.div`
         border-radius: 6px;
         background-color: ${colors.backgroundLight};
         color: ${colors.bodyLight};
+        transition: all 0.3s ease;
         transform: scaleY(0);
         transform-origin: top;  // Ce paramètre indique que le contenu s'étend à partir du haut
-        transition: transform 0.3s ease;
         box-shadow: ${colors.innerShadowDark};
 
         &.active {
 			visibility: visible;
             transform: scaleY(1);
+			transition: all 0.3s ease;
         }
         & ul li {
             margin-left: 1rem;

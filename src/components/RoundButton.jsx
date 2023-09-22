@@ -16,7 +16,7 @@ const StyledRoundButton = styled.div`
     width: 50px;
     height: 50px;
     text-align: center;
-	transition: 0.2s ease;
+	transition: all 0.3s ease;
     border-radius: 50%;
 	background: ${({ $isDarkMode }) => $isDarkMode ? colors.gradientBoxDark : colors.gradientBoxLight};
     box-shadow: ${({ $isDarkMode }) => $isDarkMode ? colors.boxShadowDark : colors.boxShadowLight};
