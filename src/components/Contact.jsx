@@ -17,15 +17,15 @@ import SmallBadge from './SmallBadge';
 
 import linkedin from '../assets/images/logos/linkedin-light.png';
 import github from '../assets/images/logos/github-light.png';
-import email from '../assets/images/logos/email-light.png';
+// import email from '../assets/images/logos/email-light.png';
 
 import linkedinDark from '../assets/images/logos/linkedin-dark.png';
 import githubDark from '../assets/images/logos/github-dark.png';
-import emailDark from '../assets/images/logos/email-dark.png';
+// import emailDark from '../assets/images/logos/email-dark.png';
 
 const LINKEDIN_URL = 'https://www.linkedin.com/in/kevin-bret-534a73180/';
 const GITHUB_URL = 'https://github.com/KEVIN-BRET/';
-const MAIL_TO_KEVIN = 'mailto:kevinbret.dev@gmail.com';
+// const MAIL_TO_KEVIN = 'mailto:kevinbret.dev@gmail.com';
 
 
 
@@ -54,9 +54,12 @@ const StyledContact = styled.div`
 	}
 `
 const StyledContainer = styled.div`
+	${'' /* border: 1px solid red; */}
+
 	display: flex;
-	justify-content: center;
-	align-items: flex-start;  
+	flex-direction: row;
+	${'' /* align-items: center;   */}
+	${'' /* justify-content: flex-start; */}
 	gap: 2rem;
 	${'' /* height: auto; */}
 	@media screen and (max-width: 1000px) {
@@ -70,6 +73,7 @@ const StyledContainer = styled.div`
 const StyledInfos = styled.div`
 	display: flex;
 	width: 40%;
+	min-width: 350px;
 	height: auto;
 	flex-direction: column;
 	justify-content: center;
@@ -286,7 +290,7 @@ export default function Contact() {
 
 					<h3>Kevin BRET</h3>
 					<p>Développeur Web</p>
-					<p>Je suis actuellement disponible, en recherche d'un poste de développeur front-end dans une équipe ..</p>
+					{/* <p>Je suis actuellement disponible, en recherche d'un poste de développeur front-end dans une équipe ..</p> */}
 					<p>Téléphone : <span>07 82 42 30 30</span></p>
 					<p>Email : <span>kevinbret.dev@gmail.com</span></p>
 
@@ -299,9 +303,9 @@ export default function Contact() {
 							<a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
 								<SmallBadge logo={github} logoDark={githubDark} hoverable />
 							</a>
-							<a href={MAIL_TO_KEVIN} >
+							{/* <a href={MAIL_TO_KEVIN} >
 								<SmallBadge logo={email} logoDark={emailDark} hoverable />
-							</a>
+							</a> */}
 						</div>
 					</div>
 				</StyledInfos>

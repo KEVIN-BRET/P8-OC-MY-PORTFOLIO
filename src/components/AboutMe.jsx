@@ -21,9 +21,11 @@ const StyledAboutMe = styled.div`
 	justify-content: center;
 	width: 80%;
 	max-width: 1440px;
+	height: 100vh;
 	gap: 3rem;
 	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
 	@media screen and (max-width: 1100px) {
+		height: auto;
 		flex-direction: column-reverse;
 		
 	}
@@ -72,10 +74,10 @@ const StyledPhoto = styled.div`
 		margin: 0 1rem;
 		
 	}
-	${'' /* @media screen and (max-width: 900px) {
+	@media screen and (max-width: 768px) {
 		height: 300px;
 		
-	} */}
+	}
 `
 
 export default function AboutMe() {
