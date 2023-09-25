@@ -51,11 +51,11 @@
 			"https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/logos/mongodb-dark.png"
 		],
 		"content": [
-			"Manipuler les éléments du DOM,",
-			"Récupérer des données via des formulaires,",
+			"Implémenter un modèle logique de données,",
+			"Mettre en oeuvre des opération CRUD,",
 			"Gérer les évènements utilisateur,",
-			"Interagir avec des API externe,",
-			"Manipuler des données au format JSON"
+			"Stocker des données de manière sécurisée,",
+			"Utiliser les bonnes pratiques du Green Code."
 		]
 	},
 	{

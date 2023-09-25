@@ -37,10 +37,12 @@ const StyledInfos = styled.div`
 	align-items: flex-start;
 	justify-content: space-between;
 	${'' /* height: 500px; */}
-
 	& p {
 		margin: 1rem 0;
-		font-size: 1.2rem;
+		font-style: inherit;
+	}
+	& .welcome {
+		font-size: 1.3rem;
 	}
 
 	& .title {
@@ -49,6 +51,11 @@ const StyledInfos = styled.div`
 		& .myName {
 			color: ${colors.primary};
 		}
+	}
+	& #myDescription {
+		font-size: 1.1rem; ! important;
+		line-height: 1.5;
+		font-style: italic;
 	}
 	
 	& .badges {
@@ -87,16 +94,43 @@ export default function AboutMe() {
 		<StyledAboutMe id='accueil' $isDarkMode={darkMode} >
 			<StyledInfos>
 				<div className='text'>
-					<p>Bienvenue sur mon Portfolio !</p>
+					<p className='welcome'>Bienvenue sur mon Portfolio !</p>
 					<h1 className='title'>
 						Bonjour, je suis
 						<span className='myName'> Kevin BRET</span>,
 						<br />
 						<span className='title-cation'>Développeur Web Junior.</span>
 					</h1>
-					<p>Passionné d'informatique depuis toujours, particulièrement par le développent Front-end</p>
+					{/* <p>Passionné d'informatique depuis toujours, particulièrement par le développent Front-end</p> */}
 
-					{/* <p>Je suis Kevin, passionnée en développement web. J'ai suivi la formation développeur web d'openClassrooms. J'ai des compétences en HTML, CSS, JavaScript, ainsi que React. Je dispose aussi de quelques notions de photoshop, d'illustrator et de dessin acquises lors de mes expériences passées. Je suis actuellement à la recherche de ma première opportunité en tant que développeur Front-End junior. N'hésitez pas à explorer mes réalisations ci-dessous et à me contacter si vous êtes intéressés par mon profil. Je suis enthousiaste à l'idée de mettre en pratique mes compétences au sein d'une équipe dynamique et de contribuer au succès de projets web.</p> */}
+
+					<div id='myDescription'>
+						<p>
+							Je suis passionné en développement web Front-end. J'ai suivi la formation développeur web d'OpenClassrooms et je suis depuis peu, titulaire d'un Diplome de niveau 5.
+							{/* <br />
+							J'ai des compétences en HTML, CSS, JavaScript, ainsi que React.
+							<br />
+							Mais également en Back-end, Seo, Methodes agiles, .. */}
+						</p>
+
+						<p>
+							{/* <br /> */}
+							J'ai des compétences en HTML, CSS, JavaScript, ainsi que React.
+							<br />
+							Mais également en Back-end, SEO, Methodes agiles, ..
+						</p>
+
+						<p>
+							N'hésitez pas à explorer mes réalisations ci-dessous et à me contacter si vous êtes intéressés par mon profil.
+						</p>
+
+						{/* <p>
+					Je suis actuellement à la recherche de ma première opportunité en tant que développeur Front-End junior. N'hésitez pas à explorer mes réalisations ci-dessous et à me contacter si vous êtes intéressés par mon profil. Je suis enthousiaste à l'idée de mettre en pratique mes compétences au sein d'une équipe dynamique et de contribuer au succès de projets web.
+					</p> */}
+
+						{/* <p>Je suis passionné en développement web. J'ai suivi la formation développeur web d'openClassrooms. J'ai des compétences en HTML, CSS, JavaScript, ainsi que React. Je dispose aussi de quelques notions de photoshop, d'illustrator et de dessin acquises lors de mes expériences passées. Je suis actuellement à la recherche de ma première opportunité en tant que développeur Front-End junior. N'hésitez pas à explorer mes réalisations ci-dessous et à me contacter si vous êtes intéressés par mon profil. Je suis enthousiaste à l'idée de mettre en pratique mes compétences au sein d'une équipe dynamique et de contribuer au succès de projets web.</p> */}
+					</div>
+
 				</div>
 				<div className='badges'>
 
