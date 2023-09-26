@@ -80,7 +80,7 @@ const StyledNavMobile = styled.div`
 		transition: transform 0.5s ease; 
 		position: fixed;
 		right: 0;
-		padding: 0.5rem 1.5rem;
+		padding: 0.5rem 0.5rem;
 		height: 100%;
 		background-color: ${({ $isDarkMode }) => $isDarkMode ? colors.backgroundDark : colors.backgroundLight};
 		display: flex;
@@ -112,7 +112,7 @@ const StyledNavMobile = styled.div`
 			}
 		}
 			& .close {
-					scale: 0.8;
+					scale: 0.7;
 				}
 		& .separation {
 			height: 1px;
@@ -153,9 +153,9 @@ export default function MobileMenu({ isMenuOpen, onClose }) {
 			<div className="menu" onClick={handleMenuClick} >
 				<div className='mobileHeader'>
 					<StyledLogo $isDarkMode={darkMode} $inMobileNav>
-						<div className="circle">
+						{/* <div className="circle">
 							<img src={avatar} alt="logo" />
-						</div>
+						</div> */}
 						<h3 className='desktopTitle'>Kevin BRET</h3>
 					</StyledLogo>
 
