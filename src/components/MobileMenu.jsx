@@ -1,13 +1,11 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import colors from '../style/colors';
-import avatar from '../assets/images/avatar.webp';
 import RoundButton from './RoundButton';
 import Navigation from './Navigation';
 import FindMe from './FindMe';
 import DownloadCVButton from './DownloadCVButton';
 import { ThemeContext } from '../utils/context/ThemeProvider';
-import { useState, useEffect } from 'react';
 
 
 const StyledLogo = styled.div`
