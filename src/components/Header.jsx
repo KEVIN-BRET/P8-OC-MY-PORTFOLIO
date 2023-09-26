@@ -5,6 +5,7 @@ import RoundButton from './RoundButton';
 import DownloadCVButton from './DownloadCVButton';
 import Navigation from './Navigation';
 
+
 import colors from '../style/colors';
 
 import styled from 'styled-components';
@@ -15,12 +16,13 @@ import burgerMenu from '../assets/images/burger-menu.png';
 
 import MobileMenu from './MobileMenu';
 
-// // imports pour utiliser les icônes fontawesome :
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import fontawesome from '@fortawesome/fontawesome'
-// import { faCheckSquare, faCoffee, faBars } from '@fortawesome/free-solid-svg-icons'
-// // import de chaque icône utilisée :
-// fontawesome.library.add(faCheckSquare, faCoffee, faBars);
+// imports pour utiliser les icônes fontawesome :
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import fontawesome from '@fortawesome/fontawesome'
+// import de toutes les icônes :
+import { faBullhorn, faXmark } from '@fortawesome/free-solid-svg-icons'
+// import de chaque icône utilisée :
+fontawesome.library.add(faBullhorn, faXmark);
 
 
 const StyledLogo = styled.div`
@@ -78,7 +80,115 @@ const StyledLogo = styled.div`
 	}
 `
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.header`
+	position: fixed;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+`
+
+const StyledPopupBanner = styled.div`
+	position: relative;
+	background-color: ${colors.primary};
+	color: ${colors.bodyDark};
+	display: flex;
+	align-items: center;
+	z-index: 1000;
+	& .bannerText {
+        font-size: 1.1rem;
+        font-style: italic;
+		font-weight: 500;
+		margin: 0.5rem 1rem;
+		/* empêche le texte de passer à la ligne */
+        white-space: nowrap; 
+        max-width: calc(100% - 3rem); /* laisse un espace pour le bouton de fermeture */
+        animation: marqueeDesktop 25s linear infinite;
+		/* Animation accélérée pour les écrans mobiles */
+        @media screen and (max-width: 1100px) {
+            animation: marqueeTablet 20s linear infinite;
+			
+        }
+        @media screen and (max-width: 768px) {
+            animation: marqueeMobile 20s linear infinite;
+			
+        }
+    }
+    @keyframes marqueeDesktop {
+        0%   { transform: translateX(100%); }
+        100% { transform: translateX(-150%); }
+    }
+    @keyframes marqueeTablet {
+        0%   { transform: translateX(100%); }
+        100% { transform: translateX(-300%); }
+    }
+    @keyframes marqueeMobile {
+        0%   { transform: translateX(100%); }
+        100% { transform: translateX(-600%); }
+    }
+	& .closeWrapper {
+		position: absolute;
+		height: 100%;
+		right: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.5rem 1rem;
+		background: ${colors.primary};
+		background: linear-gradient(90deg, rgba(35,158,186,0) 0%, ${colors.primary} 30%);
+		& .closeBanner {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			padding: 0.5rem;
+			width: 2rem;
+			height: 2rem;
+			font-size: 1.2rem;
+			color: ${colors.bodyDark};
+			z-index: 1000;
+			&:hover {
+				transform: scale(1.2);
+				transition: all 0.3s;
+			}
+		}
+	}
+	& .megaphoneWrapper {
+		${'' /* border: 1px solid red; */}
+
+		position: absolute;
+		height: 100%;
+		left: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.5rem 1rem;
+		background: ${colors.primary};
+		background: linear-gradient(270deg, rgba(35,158,186,0) 0%, ${colors.primary} 30%);
+		& .megaphone {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			padding: 0.5rem;
+			width: 2rem;
+			height: 2rem;
+			font-size: 1.2rem;
+			color: ${colors.bodyDark};
+			z-index: 2000;
+			&:hover {
+				transform: scale(1.2);
+				transition: all 0.3s;
+			}
+		}
+	}
+`
+
+const StyledMenu = styled.div`
+	${'' /* border: 1px solid pink; */}
+	
+	${'' /* position: fixed; */}
+
 	background-color: ${({ $isDarkMode }) => $isDarkMode ? colors.backgroundDark : colors.backgroundLight};
 	${'' /* border-bottom: 1px solid var(--color-lightgray); */}
 	display: flex;
@@ -86,9 +196,8 @@ const StyledHeader = styled.div`
 	justify-content: space-between;
 	padding: 2rem 2rem;
 	width: 100%;
-	position: fixed;
-	left: 0;
-	top: 0;
+	${'' /* left: 0; */}
+	${'' /* top: 0; */}
 	z-index: 100;
 	height: 100px;
 	transition: 0.5s ease;
@@ -144,10 +253,19 @@ const StyledBacToTop = styled.div`
 
 export default function Header() {
 	const { darkMode } = useContext(ThemeContext);
-	// est-ce que la page est scrollée ?
+	// est-ce que le menu est ouvert ?
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	// est-ce que la page est scrollée ?
 	const [isScrolled, setIsScrolled] = useState(false);
+	// est-ce que la Banner est visible ?
+	const [isPBannerVisible, setIsBannerVisible] = useState(true);
 
+	// fonction pour fermer la Banner
+	const closeBanner = () => {
+		setIsBannerVisible(false);
+	};
+
+	// fonction pour verifier si la page est scrollée
 	useEffect(() => {
 		const handleScroll = () => {
 			if (window.scrollY > 0) {
@@ -166,39 +284,58 @@ export default function Header() {
 	}, []);
 
 	return (
-		<div>
+		<>
+			<StyledHeader >
 
-			<StyledHeader $isDarkMode={darkMode} className={isScrolled ? 'header--scrolled' : ''}>
-				<StyledLogo $isDarkMode={darkMode}>
-					<div className="circle">
-						<img src={avatar} alt="logo" />
-						<h3 className='mobileTitle'>KB</h3>
-					</div>
-					<h3 className='desktopTitle'>Kevin BRET</h3>
-				</StyledLogo>
+				{isPBannerVisible && (
+					<StyledPopupBanner>
+						<p className='bannerText'>
+							Je suis actuellement à la recherche de ma première opportunité en tant que développeur Front-End junior. N'hésitez pas à explorer mes réalisations ci-dessous et à me contacter si vous êtes intéressé par mon profil <span>😉</span>
+						</p>
+						<div className="megaphoneWrapper">
+							<div className="megaphone">
+								<FontAwesomeIcon icon={faBullhorn} />
+							</div>
+						</div>
+						<div className="closeWrapper">
+							<div className="closeBanner" onClick={closeBanner}>
+								<FontAwesomeIcon icon={faXmark} />
+							</div>
+						</div>
+					</StyledPopupBanner>)}
 
-				<ToggleThemeButton />
+				<StyledMenu $isDarkMode={darkMode} className={isScrolled ? 'header--scrolled' : ''} >
+					<StyledLogo $isDarkMode={darkMode}>
+						<div className="circle">
+							<img src={avatar} alt="logo" />
+							<h3 className='mobileTitle'>KB</h3>
+						</div>
+						<h3 className='desktopTitle'>Kevin BRET</h3>
+					</StyledLogo>
 
-				{/* <p>start-
+					<ToggleThemeButton />
+
+					{/* <p>start-
 					<FontAwesomeIcon icon="check-square" />
 					<FontAwesomeIcon icon="coffee" />
 					<FontAwesomeIcon icon="bars" />
 					-end</p> */}
 
-				<StyledBurgerMenu
-					src={burgerMenu}
-					alt="burgerMenu"
-					onClick={() => {
-						setIsMenuOpen(true)
-						// console.log("Menu opened ...");
-					}}
-				// onClose={() => setIsMenuOpen(false)}
-				/>
+					<StyledBurgerMenu
+						src={burgerMenu}
+						alt="burgerMenu"
+						onClick={() => {
+							setIsMenuOpen(true)
+							// console.log("Menu opened ...");
+						}}
+					// onClose={() => setIsMenuOpen(false)}
+					/>
 
-				<div className='nav-cv'>
-					<Navigation isMobile={false} />
-					<DownloadCVButton $isDarkMode={darkMode} />
-				</div>
+					<div className='nav-cv'>
+						<Navigation isMobile={false} />
+						<DownloadCVButton $isDarkMode={darkMode} />
+					</div>
+				</StyledMenu>
 
 			</StyledHeader>
 
@@ -213,6 +350,6 @@ export default function Header() {
 					<RoundButton className="symbol" symbol="↑" />
 				</a>
 			</StyledBacToTop>
-		</div>
+		</>
 	);
 }
