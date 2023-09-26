@@ -85,7 +85,7 @@ const StyledHeader = styled.header`
 	width: 100%;
 	left: 0;
 	top: 0;
-	z-index: 1000;
+	z-index: 50;
 `
 
 const StyledPopupBanner = styled.div`
@@ -94,7 +94,7 @@ const StyledPopupBanner = styled.div`
 	color: ${colors.bodyDark};
 	display: flex;
 	align-items: center;
-	z-index: 1000;
+	z-index: 60;
 	& .bannerText {
         font-size: 1.1rem;
         font-style: italic;
@@ -146,7 +146,7 @@ const StyledPopupBanner = styled.div`
 			height: 2rem;
 			font-size: 1.2rem;
 			color: ${colors.bodyDark};
-			z-index: 1000;
+			z-index: 60;
 			&:hover {
 				transform: scale(1.2);
 				transition: all 0.3s;
@@ -175,7 +175,7 @@ const StyledPopupBanner = styled.div`
 			height: 2rem;
 			font-size: 1.2rem;
 			color: ${colors.bodyDark};
-			z-index: 2000;
+			z-index: 100;
 			&:hover {
 				transform: scale(1.2);
 				transition: all 0.3s;
@@ -236,7 +236,7 @@ const StyledBacToTop = styled.div`
 	position: fixed;
     bottom: 50px;
     right: 50px;
-	z-index: 200;
+	z-index: 50;
 	line-height: 46px;
 	border-radius: 50%;
 	visibility: hidden;
@@ -245,6 +245,7 @@ const StyledBacToTop = styled.div`
     opacity: 1;
     visibility: visible;
 	@media screen and (max-width: 900px) {
+		transform: scale(0.8);
 		bottom: 20px;
     	right: 20px;
 	}

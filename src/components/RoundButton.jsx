@@ -9,7 +9,7 @@ const StyledRoundButton = styled.div`
     cursor: pointer;
 	font-size: 3rem;
 	color: ${({ $isDarkMode }) => $isDarkMode ? colors.bodyDark : colors.bodyLight};
-    z-index: 200;
+    z-index: 50;
 	display: flex;
 	align-items: center;
 	justify-content: center;
