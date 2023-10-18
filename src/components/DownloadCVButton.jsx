@@ -33,4 +33,3 @@ export default function DownloadCVButton() {
 
   return <StyledButton $isDarkMode={darkMode} >Télécharger mon CV</StyledButton>;
 }
-
