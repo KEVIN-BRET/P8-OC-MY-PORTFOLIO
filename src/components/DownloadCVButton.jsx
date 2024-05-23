@@ -32,13 +32,13 @@ const StyledButton = styled.a`
 
 export default function DownloadCVButton() {
   const { darkMode } = useContext(ThemeContext);
-  const cvLink = "/CV_Kevin_BRET_2023.pdf";
+  const cvLink = "/CV_Kevin_BRET_2024.pdf";
 
   return (
     <StyledButton
       $isDarkMode={darkMode}
       href={cvLink}
-      download="CV_Kevin_BRET_2023.pdf"
+      download="CV_Kevin_BRET_2024.pdf"
     >
       Télécharger mon CV
     </StyledButton>
